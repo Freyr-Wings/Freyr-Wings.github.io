@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hello-world]]></title>
+    <url>%2F2018%2F02%2F26%2Fhello-world-1%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[搭建步骤]]></title>
+    <url>%2F2018%2F02%2F25%2F%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%2F</url>
+    <content type="text"><![CDATA[github.io博客+hexo+主题1-创建github账号，新建repo，命名应与账号名相同2-配置好gitbash中的ssh3-任意新建一个文件夹用于存放博客和更新博客（完全不需要clone下来第一步新建的repo）1234567npm install -g hexo-cli # 安装hexocd (你的文件夹)hexo initnpm install# 通过以上步骤即可初始化完成hexo server # 本地查看部署好的网站npm install hexo-deployer-git --save # 为第五步步骤做准备 4-打开_config.yml，修改最后一部分1234deploy: type: git repo: git@github.com:Freyr-Wings/Freyr-Wings.github.io.git branch: master 5-输入命令部署网站1hexo g -d # deploy，将搭建好的网站部署到github.io上 6-下载主题a-例子-yilialink: https://github.com/litten/hexo-theme-yilia 1git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia 克隆完成后每次更新只需要在文件夹内git pull即可 b-Rank主题排行（from知乎）：https://www.zhihu.com/question/24422335 1git clone https://github.com/Simpleyyt/jekyll-theme-next.git themes/next c-viosey-material文档：https://material.viosey.com/docs/#/start 1git clone https://github.com/viosey/hexo-theme-material.git themes/material 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182# Hexo Configuration## Docs: https://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# Sitetitle: Hexosubtitle:description:author: John Doelanguage:timezone:# URL## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'url: http://yoursite.comroot: /permalink: :year/:month/:day/:title/permalink_defaults:# Directorysource_dir: sourcepublic_dir: publictag_dir: tagsarchive_dir: archivescategory_dir: categoriescode_dir: downloads/codei18n_dir: :langskip_render:# Writingnew_post_name: :title.md # File name of new postsdefault_layout: posttitlecase: false # Transform title into titlecaseexternal_link: true # Open external links in new tabfilename_case: 0render_drafts: falsepost_asset_folder: falserelative_link: falsefuture: truehighlight: enable: true line_number: true auto_detect: false tab_replace: # Home page setting# path: Root path for your blogs index page. (default = '')# per_page: Posts displayed per page. (0 = disable pagination)# order_by: Posts order. (Order by date descending by default)index_generator: path: '' per_page: 10 order_by: -date # Category &amp; Tagdefault_category: uncategorizedcategory_map:tag_map:# Date / Time format## Hexo uses Moment.js to parse and display date## You can customize the date format as defined in## http://momentjs.com/docs/#/displaying/format/date_format: YYYY-MM-DDtime_format: HH:mm:ss# Pagination## Set per_page to 0 to disable paginationper_page: 10pagination_dir: page# Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: material# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:Freyr-Wings/Freyr-Wings.github.io.git branch: master]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F11%2F09%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
