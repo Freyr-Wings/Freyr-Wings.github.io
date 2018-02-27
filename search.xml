@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hello-world]]></title>
-    <url>%2F2018%2F02%2F26%2Fhello-world-1%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[hexo博客(2)]]></title>
+    <url>%2F2018%2F02%2F27%2Fhexo%E5%8D%9A%E5%AE%A2-2%2F</url>
+    <content type="text"><![CDATA[github decoration GitHub Ribbons http://tholman.com/github-corners/ 挑选一个喜欢的样式，然后把对应的代码复制下来 打开文件：themes/next/layout/_layout.swig,搜索&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;。然后把你刚刚复制的代码，粘贴到此处下面，并修改href为你的github的对应地址 头像变成圆形，鼠标停放在上面时可以旋转找到文件themes/next/source/css/_common/components/sidebar/sidebar-author.styl，在其中加入下面注释中间的代码 123456789101112131415161718192021222324.site-author-image &#123; display: block; margin: 0 auto; max-width: 96px; height: auto; border: 2px solid #333; padding: 2px; /* start*/ border-radius: 50% webkit-transition: 1.4s all; moz-transition: 1.4s all; ms-transition: 1.4s all; transition: 1.4s all; /* end */&#125;/* start */.site-author-image:hover &#123; background-color: #55DAE1; webkit-transform: rotate(360deg) scale(1.1); moz-transform: rotate(360deg) scale(1.1); ms-transform: rotate(360deg) scale(1.1); transform: rotate(360deg) scale(1.1);&#125;/* end */ 给文章添加阴影效果打开文件themes/next/source/css/_custom/custom.styl，输入以下代码，保存后退出。 12345678// 主页文章 添加阴影效果.post &#123; margin-top: 60px; margin-bottom: 60px; padding: 25px; -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5); -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);&#125; 在文章中插入图片在站点配置文件中将post_asset_folder改为true，重新generate，然后通过命令hexo new “title” 生成新的文章，同时也会自动生成文件夹/source/_post/title，在文件夹中放入图片，然后在对应的md文档中输入 即可。 阅读全文在md文档中插入&lt;!-- more --&gt;即可 搜索功能在站点配置文件中添加 12345search: path: search.xml field: post format: html limit: 10000 在主题配置文件中找到local_search，将enable改为true即可 不蒜子总访客量与总访问量统计，LeanCloud文章热度然后在主题配置文件中找到busuanzi_count，将enable改为true ，为了避免与文章热度重合，将page_pv 改为false ，然后需要配置leancloud，步骤如下： 进入LeanCloud官网 进行注册 选择创建应用(开发版)-&gt;创建Class(限制写入) 点击左侧设置-&gt;点击应用Key 在主题配置文件中找到leancloud_visitors，填入并修改对应值 至此，文章中已经可以显示文章阅读次数了，同时页面底部会有总访客量和总访问量。 修改阅读次数的icon和文字的方法是： 找到themes/next/languages下对应的语言文件，找到post下的visitors，修改为热度。 找到themes/next/layout/_macro/post.swig，修改部分如下： 1234567891011121314&#123;# LeanCould PageView #&#125;&#123;% if theme.leancloud_visitors.enable %&#125;&lt;span id="&#123;&#123; url_for(post.path) &#125;&#125;" class="leancloud_visitors" data-flag-title="&#123;&#123; post.title &#125;&#125;"&gt;&lt;span class="post-meta-divider"&gt;|&lt;/span&gt;&lt;span class="post-meta-item-icon"&gt;&lt;i class="fa fa-thermometer"&gt;&lt;/i&gt;&lt;/span&gt;&#123;% if theme.post_meta.item_text %&#125;&lt;span class="post-meta-item-text"&gt;&#123;&#123;__('post.visitors')&#125;&#125; &lt;/span&gt;&#123;% endif %&#125;&lt;span class="leancloud-visitors-count"&gt;&lt;/span&gt;&lt;span&gt;℃&lt;/span&gt;&lt;/span&gt;&#123;% endif %&#125; 统计文章字数，阅读时长在gitbash中输入 1npm i --save hexo-wordcount 修改主题配置文件，将post_wordcount下的值都改为true 文章模板修改/scaffolds/post.md文件，便于每次创建文章时使用 123456789title: &#123;&#123; title &#125;&#125;date: &#123;&#123; date &#125;&#125;top:tags:categories:description:copyright: truecomments: true&lt;!-- more --&gt;]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo博客(1)]]></title>
+    <url>%2F2018%2F02%2F27%2Fhexo%E5%8D%9A%E5%AE%A2-1%2F</url>
+    <content type="text"><![CDATA[借助github pages和hexo，可以很方便的搭建起美观而又简洁的博客，还可以随时更改博客界面，添加各种实用的插件进行进一步的美化。本文为搭建博客步骤的简要介绍^_^。 创建github账号，新建repo，命名应与账号名相同配置gitbash中的ssh任意新建一个文件夹用于存放博客和更新博客不需要clone下来第一步新建的repo，但建议的方式是在repo中新建分支保存用于生成博客的文件夹 1234567npm install -g hexo-cli # 安装hexocd (你的文件夹)hexo initnpm install# 通过以上步骤即可初始化完成hexo server # 本地查看部署好的网站npm install hexo-deployer-git --save # 为第五步步骤做准备 打开_config.yml，修改最后一部分1234deploy: type: git repo: git@github.com:Freyr-Wings/Freyr-Wings.github.io.git branch: master 输入命令部署网站1hexo g -d # deploy，将搭建好的网站部署到github.io上 下载主题a-例子-yilialink: https://github.com/litten/hexo-theme-yilia 1git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia 克隆完成后每次更新只需要在文件夹内git pull即可 b-Rank主题排行（from知乎）：https://www.zhihu.com/question/24422335 1git clone --branch v5.1.2 https://github.com/iissnan/hexo-theme-next themes/next c-viosey-material文档：https://material.viosey.com/docs/#/start 1git clone https://github.com/viosey/hexo-theme-material.git themes/material EXTRA输入hexo d后，如果发现配置失败，请直接打开.deploy_git文件夹，通过git push origin master 的方式进行尝试和debug]]></content>
       <categories>
         <category>hexo</category>
       </categories>
@@ -12,13 +24,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[搭建步骤]]></title>
-    <url>%2F2018%2F02%2F25%2F%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4%2F</url>
-    <content type="text"><![CDATA[github.io博客+hexo+主题1-创建github账号，新建repo，命名应与账号名相同2-配置好gitbash中的ssh3-任意新建一个文件夹用于存放博客和更新博客（完全不需要clone下来第一步新建的repo）1234567npm install -g hexo-cli # 安装hexocd (你的文件夹)hexo initnpm install# 通过以上步骤即可初始化完成hexo server # 本地查看部署好的网站npm install hexo-deployer-git --save # 为第五步步骤做准备 4-打开_config.yml，修改最后一部分1234deploy: type: git repo: git@github.com:Freyr-Wings/Freyr-Wings.github.io.git branch: master 5-输入命令部署网站1hexo g -d # deploy，将搭建好的网站部署到github.io上 6-下载主题a-例子-yilialink: https://github.com/litten/hexo-theme-yilia 1git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia 克隆完成后每次更新只需要在文件夹内git pull即可 b-Rank主题排行（from知乎）：https://www.zhihu.com/question/24422335 1git clone https://github.com/Simpleyyt/jekyll-theme-next.git themes/next c-viosey-material文档：https://material.viosey.com/docs/#/start 1git clone https://github.com/viosey/hexo-theme-material.git themes/material 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182# Hexo Configuration## Docs: https://hexo.io/docs/configuration.html## Source: https://github.com/hexojs/hexo/# Sitetitle: Hexosubtitle:description:author: John Doelanguage:timezone:# URL## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'url: http://yoursite.comroot: /permalink: :year/:month/:day/:title/permalink_defaults:# Directorysource_dir: sourcepublic_dir: publictag_dir: tagsarchive_dir: archivescategory_dir: categoriescode_dir: downloads/codei18n_dir: :langskip_render:# Writingnew_post_name: :title.md # File name of new postsdefault_layout: posttitlecase: false # Transform title into titlecaseexternal_link: true # Open external links in new tabfilename_case: 0render_drafts: falsepost_asset_folder: falserelative_link: falsefuture: truehighlight: enable: true line_number: true auto_detect: false tab_replace: # Home page setting# path: Root path for your blogs index page. (default = '')# per_page: Posts displayed per page. (0 = disable pagination)# order_by: Posts order. (Order by date descending by default)index_generator: path: '' per_page: 10 order_by: -date # Category &amp; Tagdefault_category: uncategorizedcategory_map:tag_map:# Date / Time format## Hexo uses Moment.js to parse and display date## You can customize the date format as defined in## http://momentjs.com/docs/#/displaying/format/date_format: YYYY-MM-DDtime_format: HH:mm:ss# Pagination## Set per_page to 0 to disable paginationper_page: 10pagination_dir: page# Extensions## Plugins: https://hexo.io/plugins/## Themes: https://hexo.io/themes/theme: material# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:Freyr-Wings/Freyr-Wings.github.io.git branch: master]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F11%2F09%2Fhello-world%2F</url>
+    <title><![CDATA[hello-world]]></title>
+    <url>%2F2018%2F02%2F26%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
 </search>
