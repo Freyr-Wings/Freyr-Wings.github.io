@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  900 字
+                  904 字
                 </span>
               
 
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长≈</span>
                 
                 <span title="阅读时长≈">
-                  3分钟
+                  4分钟
                 </span>
               
             </div>
@@ -469,7 +469,7 @@
 <p>$m_j$代表用户<code>j</code> 评过分的电影的总数</p>
 <h2 id="基于内容的推荐系统"><a href="#基于内容的推荐系统" class="headerlink" title="基于内容的推荐系统"></a>基于内容的推荐系统</h2><p>假设每部电影都有一个特征向量$\bf{x}^i$</p>
 <p>假设每个用户心中有一个用于打分的参数向量$\bf{\theta}^j$</p>
-<p>则对预测评分$\hat{y}^{(i, j)}$和代价函数$L(\bf{\theta}^j)$有：<br>$$<br>\hat{y}^{(i, j)}=(\bf{\theta}^j)^T\bf{x}^i\<br>L(\bf{\theta}^j)=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}||\bf{\theta}^j||^2\<br>L(\bf{\theta})=\sum\limits_{j=1}^{n_{user}}L(\bf{\theta}^j)<br>$$<br>最后通过梯度下降法得到$\bf{\theta}​$的最优解</p>
+<p>则对预测评分$\hat{y}^{(i, j)}$有：<br>$$<br>\hat{y}^{(i, j)}=(\bf{\theta}^j)^T\bf{x}^i\<br>$$<br>对代价函数$L(\bf{\theta})$有：<br>$$<br>\begin{equation}<br>L(\bf{\theta}^j)=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}||\bf{\theta}^j||^2\<br>L(\bf{\theta})=\sum\limits_{j=1}^{n_{user}}L(\bf{\theta}^j)<br>\end{equation}<br>$$<br>最后通过梯度下降法得到$\bf{\theta}$的最优解</p>
 <h3 id="个人体会"><a href="#个人体会" class="headerlink" title="个人体会"></a>个人体会</h3><ol>
 <li>在这个系统中首先需要给出每部电影的特征，以及部分用户对电影的打分</li>
 <li>一方面，可以利用用户的$\theta$来评估未打分的电影的$\hat{y}$，从而将预测打分比较高的推荐给用户</li>
