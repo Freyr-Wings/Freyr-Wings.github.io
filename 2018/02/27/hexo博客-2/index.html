@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/02/27/hexo博客-2/next.png">
-<meta property="og:updated_time" content="2018-02-27T18:14:19.074Z">
+<meta property="og:updated_time" content="2018-03-16T05:58:55.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="来做个自己的hexo博客吧(2)">
 <meta name="twitter:image" content="https://freyr-wings.github.io/2018/02/27/hexo博客-2/next.png">
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  809 字
+                  968 字
                 </span>
               
 
@@ -485,8 +485,15 @@
 <h2 id="统计文章字数，阅读时长"><a href="#统计文章字数，阅读时长" class="headerlink" title="统计文章字数，阅读时长"></a>统计文章字数，阅读时长</h2><p>在gitbash中输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
 <p>修改<strong>主题配置文件</strong>，将<code>post_wordcount</code>下的值都改为<code>true</code></p>
+<h2 id="添加公式"><a href="#添加公式" class="headerlink" title="添加公式"></a>添加公式</h2><p>在<strong>主题配置文件</strong>中找到mathjax，将enable改为true，然后在每篇文档的开头添加<code>mathjax: true</code>，修改完后可以通过<script type="math/tex">`符号包围文字，在行内添加公式，例如$a=\frac{b}{c}$，也可以通过`$$$包围文字形成行间的公式，如：</script>a=\sum_{i=0}^{100}i$$</p>
+<p>mathjax在某些情况下可能会出现公式渲染的问题，可以通过以下步骤解决：</p>
+<p>在根目录下输入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>然后修改根目录下文件<code>node_modules\kramed\lib\rules\inline.js</code>，修改代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="built_in">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">  em: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span></span><br></pre></td></tr></table></figure>
+<p>最后执行<code>hexo clean</code>、<code>hexo g -d</code>重新生成博客</p>
 <h2 id="文章模板"><a href="#文章模板" class="headerlink" title="文章模板"></a>文章模板</h2><p>修改<code>/scaffolds/post.md</code>文件，便于每次创建文章时使用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">top:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">description:</span><br><span class="line">copyright: true</span><br><span class="line">comments: true</span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">top:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">description:</span><br><span class="line">copyright: true</span><br><span class="line">comments: true</span><br><span class="line">mathjax: true</span><br><span class="line"><span class="comment">&lt;!-- more --&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -685,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-decoration"><span class="nav-number">1.</span> <span class="nav-text">github decoration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头像变成圆形，鼠标停放在上面时可以旋转"><span class="nav-number">2.</span> <span class="nav-text">头像变成圆形，鼠标停放在上面时可以旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给文章添加阴影效果"><span class="nav-number">3.</span> <span class="nav-text">给文章添加阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在文章中插入图片"><span class="nav-number">4.</span> <span class="nav-text">在文章中插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读全文"><span class="nav-number">5.</span> <span class="nav-text">阅读全文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能"><span class="nav-number">6.</span> <span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不蒜子总访客量与总访问量统计，LeanCloud文章热度"><span class="nav-number">7.</span> <span class="nav-text">不蒜子总访客量与总访问量统计，LeanCloud文章热度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文章字数，阅读时长"><span class="nav-number">8.</span> <span class="nav-text">统计文章字数，阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章模板"><span class="nav-number">9.</span> <span class="nav-text">文章模板</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#github-decoration"><span class="nav-number">1.</span> <span class="nav-text">github decoration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头像变成圆形，鼠标停放在上面时可以旋转"><span class="nav-number">2.</span> <span class="nav-text">头像变成圆形，鼠标停放在上面时可以旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给文章添加阴影效果"><span class="nav-number">3.</span> <span class="nav-text">给文章添加阴影效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在文章中插入图片"><span class="nav-number">4.</span> <span class="nav-text">在文章中插入图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阅读全文"><span class="nav-number">5.</span> <span class="nav-text">阅读全文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索功能"><span class="nav-number">6.</span> <span class="nav-text">搜索功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不蒜子总访客量与总访问量统计，LeanCloud文章热度"><span class="nav-number">7.</span> <span class="nav-text">不蒜子总访客量与总访问量统计，LeanCloud文章热度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计文章字数，阅读时长"><span class="nav-number">8.</span> <span class="nav-text">统计文章字数，阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加公式"><span class="nav-number">9.</span> <span class="nav-text">添加公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章模板"><span class="nav-number">10.</span> <span class="nav-text">文章模板</span></a></li></ol></div>
             
 
           </div>
