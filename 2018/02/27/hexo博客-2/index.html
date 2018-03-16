@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/02/27/hexo博客-2/next.png">
-<meta property="og:updated_time" content="2018-03-16T05:58:55.279Z">
+<meta property="og:updated_time" content="2018-03-16T06:02:58.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="来做个自己的hexo博客吧(2)">
 <meta name="twitter:image" content="https://freyr-wings.github.io/2018/02/27/hexo博客-2/next.png">
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  968 字
+                  998 字
                 </span>
               
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长≈</span>
                 
                 <span title="阅读时长≈">
-                  4分钟
+                  5分钟
                 </span>
               
             </div>
@@ -485,7 +485,7 @@
 <h2 id="统计文章字数，阅读时长"><a href="#统计文章字数，阅读时长" class="headerlink" title="统计文章字数，阅读时长"></a>统计文章字数，阅读时长</h2><p>在gitbash中输入</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
 <p>修改<strong>主题配置文件</strong>，将<code>post_wordcount</code>下的值都改为<code>true</code></p>
-<h2 id="添加公式"><a href="#添加公式" class="headerlink" title="添加公式"></a>添加公式</h2><p>在<strong>主题配置文件</strong>中找到mathjax，将enable改为true，然后在每篇文档的开头添加<code>mathjax: true</code>，修改完后可以通过<script type="math/tex">`符号包围文字，在行内添加公式，例如$a=\frac{b}{c}$，也可以通过`$$$包围文字形成行间的公式，如：</script>a=\sum_{i=0}^{100}i$$</p>
+<h2 id="添加公式"><a href="#添加公式" class="headerlink" title="添加公式"></a>添加公式</h2><p>在<strong>主题配置文件</strong>中找到mathjax，将enable改为true，然后在每篇文档的开头添加<code>mathjax: true</code>，修改完后可以通过$符号包围文字，在行内添加公式，例如$a=\frac{b}{c}$，也可以通过$$包围文字形成行间的公式，如：<script type="math/tex">a=\sum_{i=0}^{100}i</script></p>
 <p>mathjax在某些情况下可能会出现公式渲染的问题，可以通过以下步骤解决：</p>
 <p>在根目录下输入命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
