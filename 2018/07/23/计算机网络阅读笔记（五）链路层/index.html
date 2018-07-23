@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Computer Basic," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="from the beginning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="弗雷的小屋">
-<meta property="og:url" content="https://freyr-wings.github.io/tags/Recommender-system/index.html">
+<meta name="description" content="计算机网络第五章阅读笔记">
+<meta name="keywords" content="Computer Basic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络阅读笔记（五）链路层">
+<meta property="og:url" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（五）链路层/index.html">
 <meta property="og:site_name" content="弗雷的小屋">
-<meta property="og:description" content="from the beginning">
+<meta property="og:description" content="计算机网络第五章阅读笔记">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-23T11:51:45.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="弗雷的小屋">
-<meta name="twitter:description" content="from the beginning">
+<meta name="twitter:title" content="计算机网络阅读笔记（五）链路层">
+<meta name="twitter:description" content="计算机网络第五章阅读笔记">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://freyr-wings.github.io/tags/Recommender-system/"/>
+  <link rel="canonical" href="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（五）链路层/"/>
 
 
 
 
 
-  <title>标签: Recommender system | 弗雷的小屋</title>
+  <title>计算机网络阅读笔记（五）链路层 | 弗雷的小屋</title>
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/Freyr-Wings" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -302,54 +304,440 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Recommender system<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（五）链路层/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Freyr Wings">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="弗雷的小屋">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/03/11/推荐系统与协同过滤/" itemprop="url">
-              
-                <span itemprop="name">推荐系统与协同过滤</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">计算机网络阅读笔记（五）链路层</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-11T09:57:49+08:00"
-              content="2018-03-11" >
-          03-11
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-23T19:50:29+08:00">
+                2018-07-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Networking/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer Networking</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/23/计算机网络阅读笔记（五）链路层/" class="leancloud_visitors" data-flag-title="计算机网络阅读笔记（五）链路层">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-thermometer"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">共计</span>
+                
+                <span title="共计">
+                  2,298 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长≈</span>
+                
+                <span title="阅读时长≈">
+                  8分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>计算机网络第五章阅读笔记</p>
+<a id="more"></a>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>节点(node)</strong>：运行链路层协议的设备（主机、路由器、交换机、wifi接入点）</p>
+<p><strong>链路(link)</strong>：连接相邻节点的通信信道</p>
+<h2 id="链路层协议可能提供的服务"><a href="#链路层协议可能提供的服务" class="headerlink" title="链路层协议可能提供的服务"></a>链路层协议可能提供的服务</h2><ul>
+<li>成帧：将网络层数据包用链路层帧封装起来</li>
+<li>链路接入：<strong>媒体访问控制(Medium Access Control, MAC)</strong>协议规定了帧在链路上传输的规则</li>
+<li>可靠交付：保证无差错地经链路层移动每个网络层数据报</li>
+<li>差错检测和纠正</li>
+</ul>
+<p>两种链路类型：<strong>点对点链路</strong>、<strong>广播链路</strong></p>
+<h1 id="差错检测和纠正技术"><a href="#差错检测和纠正技术" class="headerlink" title="差错检测和纠正技术"></a>差错检测和纠正技术</h1><p><strong>差错检测和纠正比特(Error-Detection and Correction, EDC)</strong></p>
+<p>三种技术：奇偶校验、检验和、循环冗余检测</p>
+<h2 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h2><p><strong>奇偶校验位(parity bit)</strong></p>
+<p>方法：附加一个比特，选择值使得初始信息加上校验比特后1的总数为偶数（偶校验方案）</p>
+<p><strong>二维奇偶校验(two-dimensional parity)</strong></p>
+<p>方法：将初始信息中的d个比特划分为i行j列，对每行每列计算奇偶值，共有i+j+1个奇偶比特</p>
+<p><strong>前向纠错(Forward Error Correction, FEC)</strong>：接收方检测和纠正差错</p>
+<h2 id="校验和-Check-sum"><a href="#校验和-Check-sum" class="headerlink" title="校验和(Check sum)"></a>校验和(Check sum)</h2><p>将数据的字节作为16比特的整数进行求和，和的反码即为检验和。接收方对所有数据（包括校验和）求和，得到结果全为1比特</p>
+<h2 id="循环冗余检测-Cyclic-Redundancy-Check-CRC"><a href="#循环冗余检测-Cyclic-Redundancy-Check-CRC" class="headerlink" title="循环冗余检测(Cyclic Redundancy Check, CRC)"></a>循环冗余检测(Cyclic Redundancy Check, CRC)</h2><p><strong>生成多项式(generator)</strong>：发送方和接收方协商的r+1位比特串，表示为G</p>
+<p>方法：发送方在被发送的数据比特d后面添加r个附加比特，使得最终的d+r个比特可以被G整除</p>
+<script type="math/tex; mode=display">
+R=remainder\frac{D*2^r}{G}</script><p>注：在计算过程中，加法和减法都采用XOR操作</p>
+<h1 id="多路访问链路和协议"><a href="#多路访问链路和协议" class="headerlink" title="多路访问链路和协议"></a>多路访问链路和协议</h1><p><strong>多路访问问题</strong>：如何协调多个发送和接收节点对一个共享广播信道的访问，相关协议称为<strong>多路访问协议</strong></p>
+<p>多路访问协议应有特性：</p>
+<ol>
+<li>当仅有一个结点有数据要发送时，结点应具有R bps的吞吐量</li>
+<li>当有M个结点要发送数据时，在一定时间间隔内结点应有R/M 的平均传输速率</li>
+<li>协议是分散的，不会因为主节点故障而崩溃</li>
+<li>协议简单易实现</li>
+</ol>
+<h2 id="信道划分协议-channel-partitioning-protocol"><a href="#信道划分协议-channel-partitioning-protocol" class="headerlink" title="信道划分协议(channel partitioning protocol)"></a>信道划分协议(channel partitioning protocol)</h2><p>时分多路复用(time-division multiplexing)将时间划分为<strong>时间帧(time frame)</strong>，每个时间帧再划分为N个<strong>时隙(slot)</strong>，把每个时隙分配给N个结点中的一个</p>
+<p>缺陷：</p>
+<ol>
+<li>节点被限制于R/N bps的平均速率</li>
+<li>节点必须等待它在传输序列中的轮次</li>
+</ol>
+<p>频分多路复用(frequency-division multiplexing)将R bps信道划分为不同频段，并把每个频率分配给N个节点中的一个，其优缺点与TDM相同</p>
+<p><strong>码分多址(code division multiple access, CDMA)</strong>：见第6章</p>
+<h2 id="随机接入协议-random-access-protocol"><a href="#随机接入协议-random-access-protocol" class="headerlink" title="随机接入协议(random access protocol)"></a>随机接入协议(random access protocol)</h2><p>方式：</p>
+<ul>
+<li>传输结点总是以信道的全部速率发送</li>
+<li>涉及碰撞的结点反复重发它的帧，直到该帧无碰撞通过</li>
+<li>重发帧之前等待一个随机时延</li>
+</ul>
+<h3 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h3><ul>
+<li>必须在时隙起点开始传输帧</li>
+<li>以概率p重传</li>
+<li>最大效率为1/e</li>
+</ul>
+<h3 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h3><ul>
+<li>不限定开始传输的时刻</li>
+<li>以概率p立刻重传，1-p概率等待一个帧传输时间再重新判定</li>
+<li>最大效率为1/2e</li>
+</ul>
+<h3 id="载波侦听多路访问-Carrier-Sense-Multiple-Access-CSMA"><a href="#载波侦听多路访问-Carrier-Sense-Multiple-Access-CSMA" class="headerlink" title="载波侦听多路访问(Carrier Sense Multiple Access, CSMA)"></a>载波侦听多路访问(Carrier Sense Multiple Access, CSMA)</h3><p><strong>载波监听(Carrier sensing)</strong>：一个结点在传输前先检测信道是否正在传输帧（如何实现？）</p>
+<p><strong>碰撞检测(collision detection)</strong>：结点在传输过程中监听信道，如果检测到另一个结点正在传输则停止传输 <strong>(CSMA with Collision Detection, CSMA/CD)</strong></p>
+<p>在碰撞检测中停止传输后，适配器等待一个随机时间量（<strong>二进制指数后退</strong>），然后继续监听信道是否空闲。</p>
+<p><strong>二进制指数后退(binary exponential backoff)</strong>：假设该帧经历了n次碰撞，则从{0, 1, 2 … 2^n-1}中选择K，等待K*512比特时间，当<script type="math/tex">10\le n \le 15</script> 时，<script type="math/tex">n=10</script>，当<script type="math/tex">n\ge 16</script> 时，停止传输</p>
+<h2 id="轮流协议-taking-turns-protocol"><a href="#轮流协议-taking-turns-protocol" class="headerlink" title="轮流协议(taking-turns protocol)"></a>轮流协议(taking-turns protocol)</h2><h3 id="轮询协议-polling-protocol"><a href="#轮询协议-polling-protocol" class="headerlink" title="轮询协议(polling protocol)"></a>轮询协议(polling protocol)</h3><p>方式：指定一个主节点，由主节点以循环的方式轮询每个节点</p>
+<p>缺陷：</p>
+<ol>
+<li>引入了轮询时延</li>
+<li>如果主节点故障，则整个信道也会停止工作</li>
+</ol>
+<h3 id="令牌传递协议-token-passing-protocol"><a href="#令牌传递协议-token-passing-protocol" class="headerlink" title="令牌传递协议(token-passing protocol)"></a>令牌传递协议(token-passing protocol)</h3><p>方式：一个称为<strong>令牌</strong>的小的特殊帧在节点之间以<strong>固定的次序</strong>进行交换，只有当节点收到令牌并且有帧要传输时才发送最大数目的帧数，然后将令牌传递给下一个节点</p>
+<p>缺陷：固定次序中的任意节点故障或是令牌操作不当都会引起信道崩溃</p>
+<h2 id="DOCSIS-Data-Over-Cable-Service-Interface-Specifications"><a href="#DOCSIS-Data-Over-Cable-Service-Interface-Specifications" class="headerlink" title="DOCSIS(Data-Over-Cable Service Interface Specifications)"></a>DOCSIS(Data-Over-Cable Service Interface Specifications)</h2><p>关键词：数据经电缆服务接口(DOCSIS), 电缆调制解调器端接系统(cable modem termination system, CMTS)</p>
+<h1 id="交换局域网"><a href="#交换局域网" class="headerlink" title="交换局域网"></a>交换局域网</h1><h2 id="MAC地址（LAN地址-物理地址）"><a href="#MAC地址（LAN地址-物理地址）" class="headerlink" title="MAC地址（LAN地址/物理地址）"></a>MAC地址（LAN地址/物理地址）</h2><ul>
+<li>主机或路由器网络接口的链路层地址</li>
+<li>长度为6字节</li>
+<li>广播地址是48个连续的1组成的字串</li>
+</ul>
+<h2 id="MAC与IP的区别与联系"><a href="#MAC与IP的区别与联系" class="headerlink" title="MAC与IP的区别与联系"></a>MAC与IP的区别与联系</h2><ol>
+<li>对于网络上的某一设备，如一台计算机或一台路由器，其IP地址可变（但必须唯一），而MAC地址不可变。我们可以根据需要给一台主机指定任意的IP地址，如我们可以给局域网上的某台计算机分配IP地址为192.168.0.112 ，也可以将它改成192.168.0.200。而任一网络设备（如网卡，路由器）一旦生产出来以后，其MAC地址永远唯一且不能由用户改变。</li>
+<li>长度不同。IP地址为32位，MAC地址为48位。</li>
+<li>分配依据不同。IP地址的分配是基于网络拓朴，MAC地址的分配是基于制造商。</li>
+<li>寻址协议层不同。IP地址应用于OSI第三层，即网络层，而MAC地址应用在OSI第二层，即数据链路层。 数据链路层协议可以使数据从一个节点传递到相同链路的另一个节点上（通过MAC地址），而网络层协议使数据可以从一个网络传递到另一个网络上（ARP根据目的IP地址，找到中间节点的MAC地址，通过中间节点传送，从而最终到达目的网络）。</li>
+</ol>
+<p><a href="https://blog.csdn.net/yang_best/article/details/41643589" target="_blank" rel="noopener">https://blog.csdn.net/yang_best/article/details/41643589</a></p>
+<h2 id="地址解析协议-Address-Resolution-Protocol-ARP"><a href="#地址解析协议-Address-Resolution-Protocol-ARP" class="headerlink" title="地址解析协议(Address Resolution Protocol, ARP)"></a>地址解析协议(Address Resolution Protocol, ARP)</h2><ul>
+<li>ARP只为在同一个子网上的主机和路由器接口解析IP地址</li>
+<li>每台主机或路由器内存中维护一个ARP表</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>IP地址</th>
+<th>MAC地址</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>222.222.222.221</td>
+<td>88-B2-2F-54-1A-0F</td>
+<td>13:45:00</td>
+</tr>
+<tr>
+<td>222.222.222.223</td>
+<td>5C-66-AB-90-75-B1</td>
+<td>13:52:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>当对应表项不存在时，发送方构造一个<strong>ARP分组(ARP packet)</strong>，用MAC广播地址发送这个分组。分组中包含发送和接收IP地址和MAC地址</li>
+</ul>
+<p><strong>发送数据报到子网外</strong>：</p>
+<p>每台路由器有N个接口（对应N个IP地址），一个ARP模块，一个适配器（对应一个MAC地址）</p>
+<p>发送适配器首先通过ARP发送帧到第一跳路由器，然后该帧被传递给网络层进而移动到目的地。</p>
+<h2 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h2><h3 id="以太网帧结构"><a href="#以太网帧结构" class="headerlink" title="以太网帧结构"></a>以太网帧结构</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前同步码(Preamble)</td>
+<td>用于同步时钟</td>
+<td>8字节</td>
+</tr>
+<tr>
+<td>目的地址</td>
+<td>目的适配器的MAC地址</td>
+<td>6字节</td>
+</tr>
+<tr>
+<td>源地址</td>
+<td>源适配器MAC地址</td>
+<td>6字节</td>
+</tr>
+<tr>
+<td>类型字段</td>
+<td>网络层协议编号</td>
+<td>2字节</td>
+</tr>
+<tr>
+<td>数据字段</td>
+<td></td>
+<td>46-1500字节</td>
+</tr>
+<tr>
+<td>循环冗余检测(CRC)</td>
+<td></td>
+<td>4字节</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="链路层交换机"><a href="#链路层交换机" class="headerlink" title="链路层交换机"></a>链路层交换机</h2><p><strong>过滤</strong>：决定转发或是丢弃某个帧</p>
+<p><strong>转发</strong>：决定一个帧被导向哪个接口，并将该帧移动到那个接口</p>
+<p><strong>交换机表</strong>：对应3种转发情况(没有对应项，x=x，y!=x)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>地址</th>
+<th>接口</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>62-FE-F7-11-89-A3</td>
+<td>1</td>
+<td>9:32</td>
+</tr>
+<tr>
+<td>7C-BA-B2-B4-91-10</td>
+<td>3</td>
+<td>9:36</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>自学习</strong>：</p>
+<ol>
+<li>交换机表初始为空</li>
+<li>在表中存储每个接口接收到的入帧</li>
+<li>在老化期后删除表项</li>
+</ol>
+<p>性质：</p>
+<ol>
+<li>消除碰撞：不会因碰撞而浪费带宽</li>
+<li>异质的链路：将链路隔离从而允许不同链路运行在不同媒体上</li>
+<li>管理：更强的安全性</li>
+<li>ex即插即用：不需要管理员或用户干预，而路由器需要用户配置IP</li>
+</ol>
+<h2 id="交换机和路由器"><a href="#交换机和路由器" class="headerlink" title="交换机和路由器"></a>交换机和路由器</h2><h3 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h3><ol>
+<li>即插即用</li>
+<li>分组过滤和转发速率高</li>
+<li>广播需要采用生成树</li>
+<li>大型网络需要维护大的ARP表</li>
+<li>没有对于网络风暴的保护措施</li>
+</ol>
+<h3 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h3><ol>
+<li>分组传输可采用最佳路径</li>
+<li>为广播风暴提供防火墙包含</li>
+<li>不是即插即用</li>
+</ol>
+<h2 id="虚拟局域网-Virtula-Local-Network-VLAN"><a href="#虚拟局域网-Virtula-Local-Network-VLAN" class="headerlink" title="虚拟局域网(Virtula Local Network, VLAN)"></a>虚拟局域网(Virtula Local Network, VLAN)</h2><p>单一物理局域网基础设施定义多个局域网</p>
+<p>交换机维护端口到VLAN的映射表</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Freyr Wings
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（五）链路层/" title="计算机网络阅读笔记（五）链路层">https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（五）链路层/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Computer-Basic/" rel="tag"># Computer Basic</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/23/计算机网络阅读笔记（四）网络层/" rel="next" title="计算机网络阅读笔记（四）网络层">
+                <i class="fa fa-chevron-left"></i> 计算机网络阅读笔记（四）网络层
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +745,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDQxMy8xMDk1MA=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -377,8 +771,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -440,6 +843,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#链路层协议可能提供的服务"><span class="nav-number">1.1.</span> <span class="nav-text">链路层协议可能提供的服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#差错检测和纠正技术"><span class="nav-number">2.</span> <span class="nav-text">差错检测和纠正技术</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#奇偶校验"><span class="nav-number">2.1.</span> <span class="nav-text">奇偶校验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#校验和-Check-sum"><span class="nav-number">2.2.</span> <span class="nav-text">校验和(Check sum)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环冗余检测-Cyclic-Redundancy-Check-CRC"><span class="nav-number">2.3.</span> <span class="nav-text">循环冗余检测(Cyclic Redundancy Check, CRC)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多路访问链路和协议"><span class="nav-number">3.</span> <span class="nav-text">多路访问链路和协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信道划分协议-channel-partitioning-protocol"><span class="nav-number">3.1.</span> <span class="nav-text">信道划分协议(channel partitioning protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机接入协议-random-access-protocol"><span class="nav-number">3.2.</span> <span class="nav-text">随机接入协议(random access protocol)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时隙ALOHA协议"><span class="nav-number">3.2.1.</span> <span class="nav-text">时隙ALOHA协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALOHA"><span class="nav-number">3.2.2.</span> <span class="nav-text">ALOHA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#载波侦听多路访问-Carrier-Sense-Multiple-Access-CSMA"><span class="nav-number">3.2.3.</span> <span class="nav-text">载波侦听多路访问(Carrier Sense Multiple Access, CSMA)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#轮流协议-taking-turns-protocol"><span class="nav-number">3.3.</span> <span class="nav-text">轮流协议(taking-turns protocol)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#轮询协议-polling-protocol"><span class="nav-number">3.3.1.</span> <span class="nav-text">轮询协议(polling protocol)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#令牌传递协议-token-passing-protocol"><span class="nav-number">3.3.2.</span> <span class="nav-text">令牌传递协议(token-passing protocol)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOCSIS-Data-Over-Cable-Service-Interface-Specifications"><span class="nav-number">3.4.</span> <span class="nav-text">DOCSIS(Data-Over-Cable Service Interface Specifications)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交换局域网"><span class="nav-number">4.</span> <span class="nav-text">交换局域网</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC地址（LAN地址-物理地址）"><span class="nav-number">4.1.</span> <span class="nav-text">MAC地址（LAN地址/物理地址）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC与IP的区别与联系"><span class="nav-number">4.2.</span> <span class="nav-text">MAC与IP的区别与联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址解析协议-Address-Resolution-Protocol-ARP"><span class="nav-number">4.3.</span> <span class="nav-text">地址解析协议(Address Resolution Protocol, ARP)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以太网"><span class="nav-number">4.4.</span> <span class="nav-text">以太网</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#以太网帧结构"><span class="nav-number">4.4.1.</span> <span class="nav-text">以太网帧结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链路层交换机"><span class="nav-number">4.5.</span> <span class="nav-text">链路层交换机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换机和路由器"><span class="nav-number">4.6.</span> <span class="nav-text">交换机和路由器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交换机"><span class="nav-number">4.6.1.</span> <span class="nav-text">交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由器"><span class="nav-number">4.6.2.</span> <span class="nav-text">路由器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟局域网-Virtula-Local-Network-VLAN"><span class="nav-number">4.7.</span> <span class="nav-text">虚拟局域网(Virtula Local Network, VLAN)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -575,10 +994,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -607,6 +1026,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
