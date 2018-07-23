@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/http-request.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/http-response.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/SMTP.png">
-<meta property="og:updated_time" content="2018-07-23T12:18:32.389Z">
+<meta property="og:updated_time" content="2018-07-23T12:22:34.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络阅读笔记（二）应用层">
 <meta name="twitter:description" content="计算机网络第二章阅读笔记">
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  2,544 字
+                  2,551 字
                 </span>
               
 
@@ -523,15 +523,15 @@
 </thead>
 <tbody>
 <tr>
-<td>user<sp>username<crlf></crlf></sp></td>
+<td>user username<crlf></crlf></td>
 <td>user 命令是POP3客户端程序与POP3邮件服务器建立连接后通常发送的第一条命令，参数 username 表示收件人的帐户名称。</td>
 </tr>
 <tr>
-<td>pass<sp>password<crlf></crlf></sp></td>
+<td>pass password<crlf></crlf></td>
 <td>pass 命令是在user命令成功通过后，POP3客户端程序接着发送的命令，它用于传递帐户的密码，参数 password 表示帐户的密码。</td>
 </tr>
 <tr>
-<td>apop<sp>name,digest<crlf></crlf></sp></td>
+<td>apop name,digest<crlf></crlf></td>
 <td>apop 命令用于替代user和pass命令，它以MD5 数字摘要的形式向POP3邮件服务器提交帐户密码。</td>
 </tr>
 <tr>
@@ -539,19 +539,19 @@
 <td>stat 命令用于查询邮箱中的统计信息，例如：邮箱中的邮件数量和邮件占用的字节大小等。</td>
 </tr>
 <tr>
-<td>uidl<sp>msg#<crlf></crlf></sp></td>
+<td>uidl msg#<crlf></crlf></td>
 <td>uidl 命令用于查询某封邮件的唯一标志符，参数msg#表示邮件的序号，是一个从1开始编号的数字。</td>
 </tr>
 <tr>
-<td>list<sp>[MSG#]<crlf></crlf></sp></td>
+<td>list [MSG#]<crlf></crlf></td>
 <td>list 命令用于列出邮箱中的邮件信息，参数 msg#是一个可选参数，表示邮件的序号。当不指定参数时，POP3服务器列出邮箱中所有的邮件信息；当指定参数msg#时，POP3服务器只返回序号对应的邮件信息。</td>
 </tr>
 <tr>
-<td>retr<sp>msg#<crlf></crlf></sp></td>
+<td>retr msg#<crlf></crlf></td>
 <td>retr 命令用于获取某封邮件的内容，参数 msg#表示邮件的序号。</td>
 </tr>
 <tr>
-<td>dele<sp>msg#<crlf></crlf></sp></td>
+<td>dele msg#<crlf></crlf></td>
 <td>dele 命令用于在某封邮件上设置删除标记，参数msg#表示邮件的序号。POP3服务器执行dele命令时，只是为邮件设置了删除标记，并没有真正把邮件删除掉，只有POP3客户端发出quit命令后，POP3服务器才会真正删除所有设置了删除标记的邮件。</td>
 </tr>
 <tr>
@@ -559,7 +559,7 @@
 <td>rest 命令用于清除所有邮件的删除标记。</td>
 </tr>
 <tr>
-<td>top<sp>msg#<sp>n<crlf></crlf></sp></sp></td>
+<td>top msg# n<crlf></crlf></td>
 <td>top 命令用于获取某封邮件的邮件头和邮件体中的前n行内容，参数msg#表示邮件的序号，参数n表示要返回邮件的前几行内容。使用这条命令以提高 Web Mail系统（通过Web站点上收发邮件）中的邮件列表显示的处理效率，因为这种情况下不需要获取每封邮件的完整内容，而是仅仅需要获取每封邮件的邮件头信息。</td>
 </tr>
 <tr>
