@@ -102,14 +102,14 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:description" content="计算机网络第二章阅读笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20170330192653242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="https://img-blog.csdn.net/20170330192754102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="https://img-blog.csdn.net/20170403164317197?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzU2NDQyMzQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2018-07-23T11:46:32.947Z">
+<meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/http-request.png">
+<meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/http-response.png">
+<meta property="og:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/SMTP.png">
+<meta property="og:updated_time" content="2018-07-23T12:18:32.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络阅读笔记（二）应用层">
 <meta name="twitter:description" content="计算机网络第二章阅读笔记">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170330192653242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:image" content="https://freyr-wings.github.io/2018/07/23/计算机网络阅读笔记（二）应用层/http-request.png">
 
 
 
@@ -467,8 +467,8 @@
 </ol>
 <h2 id="运输层协议提供的服务"><a href="#运输层协议提供的服务" class="headerlink" title="运输层协议提供的服务"></a>运输层协议提供的服务</h2><p>可靠数据传输、吞吐量（特定的传输速率）、定时（时延控制）、安全性</p>
 <h1 id="Web和HTTP"><a href="#Web和HTTP" class="headerlink" title="Web和HTTP"></a>Web和HTTP</h1><p>URL地址：服务器主机名+对象路径名</p>
-<p><img src="https://img-blog.csdn.net/20170330192653242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> </p>
-<p><img src="https://img-blog.csdn.net/20170330192754102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"> </p>
+<img src="/2018/07/23/计算机网络阅读笔记（二）应用层/http-request.png" title="http-request">
+<img src="/2018/07/23/计算机网络阅读笔记（二）应用层/http-response.png" title="http-response">
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>四个组件：</p>
 <ol>
 <li>HTTP响应报文中的cookie首部行</li>
@@ -506,7 +506,7 @@
 <p>331 Username OK, password required<br>125 data connection already open; transfer starting<br>425 Can’t open data connection<br>452 Error writing file</p>
 <h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p>三个组成部分：用户代理、邮件服务器、简单邮件传输协议（SMTP）</p>
 <h2 id="SMTP-Simple-Mail-Transfer-Protocol"><a href="#SMTP-Simple-Mail-Transfer-Protocol" class="headerlink" title="SMTP(Simple Mail Transfer Protocol)"></a>SMTP(Simple Mail Transfer Protocol)</h2><p>用于从发送方的邮件服务器发送报文到接收方的邮件服务器，一般不使用中间邮件服务器发送邮件</p>
-<p><img src="https://img-blog.csdn.net/20170403164317197?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzU2NDQyMzQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="è¿éåå¾çæè¿°"> </p>
+<img src="/2018/07/23/计算机网络阅读笔记（二）应用层/SMTP.png" title="(SMTP code)">
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">S: <span class="number">220</span> hamburger.edu  <span class="comment">// 与服务器创建TCP连接之后，服务器响应220标识服务就绪</span></span><br><span class="line">C: HELO crepes.fr  <span class="comment">// 向服务器标识用户身份</span></span><br><span class="line">S: <span class="number">250</span> Hello crepes.fr, pleased to meet you  <span class="comment">// 服务器返回欢迎信息</span></span><br><span class="line">C: MAIL FROM: &lt;alice@crepes.fr&gt;  <span class="comment">// 指定发送者邮箱</span></span><br><span class="line">S: <span class="number">250</span> alice@crepes.fr ... Sender ok  <span class="comment">// </span></span><br><span class="line">C: RCPT TO: &lt;bob@hamburger.edu&gt;  <span class="comment">// 指定接受者邮箱</span></span><br><span class="line">S: <span class="number">250</span> bob@hamburger.edu ... Recipient ok  <span class="comment">// </span></span><br><span class="line">C: DATA  <span class="comment">// 请求发送数据</span></span><br><span class="line">S: <span class="number">354</span> Enter mail, end with “.” on a line by itself  <span class="comment">// 开始邮件输入</span></span><br><span class="line">C: Do you like ketchup?  <span class="comment">// </span></span><br><span class="line">C: How about pickles?  <span class="comment">// </span></span><br><span class="line">C: .  <span class="comment">// 以包含一个句点的行指示报文结束</span></span><br><span class="line">S: <span class="number">250</span> Message accepted <span class="keyword">for</span> delivery  <span class="comment">// 接收成功</span></span><br><span class="line">C: QUIT  <span class="comment">// 退出链接</span></span><br><span class="line">S: <span class="number">221</span> hamburger.edu closing connection  <span class="comment">// 服务器关闭传输通道</span></span><br></pre></td></tr></table></figure>
 <h2 id="HTTP与SMTP"><a href="#HTTP与SMTP" class="headerlink" title="HTTP与SMTP"></a>HTTP与SMTP</h2><ol>
 <li>两者都使用持续连接，但HTTP是<strong>拉协议</strong>，SMTP是<strong>推协议</strong></li>
