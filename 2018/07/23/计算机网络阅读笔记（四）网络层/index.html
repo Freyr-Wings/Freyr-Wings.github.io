@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:description" content="计算机网络第四章阅读笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-23T11:50:17.553Z">
+<meta property="og:updated_time" content="2018-07-23T12:02:22.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络阅读笔记（四）网络层">
 <meta name="twitter:description" content="计算机网络第四章阅读笔记">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  2,027 字
+                  1,955 字
                 </span>
               
 
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长≈</span>
                 
                 <span title="阅读时长≈">
-                  8分钟
+                  7分钟
                 </span>
               
             </div>
@@ -644,22 +644,162 @@
 </table>
 </div>
 <h2 id="距离向量-Distance-Vector-DV-路由选择算法"><a href="#距离向量-Distance-Vector-DV-路由选择算法" class="headerlink" title="距离向量(Distance-Vector, DV)路由选择算法"></a>距离向量(Distance-Vector, DV)路由选择算法</h2><p>p284-29</p>
-<p>​              u     v     x     y     z</p>
-<p>​       v     ∞    ∞    ∞    ∞    ∞</p>
-<p>​       x     ∞    ∞    ∞    ∞    ∞</p>
-<p>​       z     ∞    6     2     ∞    0</p>
-<p>​              u     v     x     y     z</p>
-<p>​       v     1     0     3     ∞    6</p>
-<p>​       x     ∞    3     0     3     2</p>
-<p>​       z     7     5     2     5     0</p>
-<p>​              u     v     x     y     z</p>
-<p>​       v     1     0     3     3     5</p>
-<p>​       x     4     3     0     3     2</p>
-<p>​       z     6     5     2     5     0</p>
-<p>​              u     v     x     y     z</p>
-<p>​       v     1     0     3     3     5</p>
-<p>​       x     4     3     0     3     2</p>
-<p>​       z     6     5     2     5     0</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><em>u</em></th>
+<th><em>v</em></th>
+<th><em>x</em></th>
+<th><em>y</em></th>
+<th><em>z</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>x</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+<td>∞</td>
+</tr>
+<tr>
+<td>z</td>
+<td>∞</td>
+<td>6</td>
+<td>2</td>
+<td>∞</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><em>u</em></th>
+<th><em>v</em></th>
+<th><em>x</em></th>
+<th><em>y</em></th>
+<th><em>z</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>∞</td>
+<td>6</td>
+</tr>
+<tr>
+<td>x</td>
+<td>∞</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>z</td>
+<td>7</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><em>u</em></th>
+<th><em>v</em></th>
+<th><em>x</em></th>
+<th><em>y</em></th>
+<th><em>z</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>x</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>z</td>
+<td>6</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><em>u</em></th>
+<th><em>v</em></th>
+<th><em>x</em></th>
+<th><em>y</em></th>
+<th><em>z</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td>5</td>
+</tr>
+<tr>
+<td>x</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>z</td>
+<td>6</td>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h1 id="AS-Autonomous-System-内部路由选择协议（内部网关协议）"><a href="#AS-Autonomous-System-内部路由选择协议（内部网关协议）" class="headerlink" title="AS(Autonomous System)内部路由选择协议（内部网关协议）"></a>AS(Autonomous System)内部路由选择协议（内部网关协议）</h1><h2 id="路由选择信息协议-Routing-Information-Protocol-RIP"><a href="#路由选择信息协议-Routing-Information-Protocol-RIP" class="headerlink" title="路由选择信息协议(Routing Information Protocol, RIP)"></a>路由选择信息协议(Routing Information Protocol, RIP)</h2><ol>
 <li>RIP是一种距离向量协议</li>
 <li><strong>跳</strong>：从源路由器到目的子网（包括目的子网！）的最短路径所经过的子网数量</li>
