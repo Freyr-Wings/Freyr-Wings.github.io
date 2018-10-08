@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:description" content="本文为对Andrew Ng的推荐系统与协同过滤一章的个人理解。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-16T05:25:59.215Z">
+<meta property="og:updated_time" content="2018-10-08T16:22:50.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐系统与协同过滤">
 <meta name="twitter:description" content="本文为对Andrew Ng的推荐系统与协同过滤一章的个人理解。">
@@ -481,7 +481,7 @@ L(\bf{\theta})=\sum\limits_{j=1}^{n_{user}}L(\bf{\theta}^j)</script><p>最后通
 <li>另一方面，可以通过相似性比较找到$\theta$相近的用户，互相为他们推荐电影</li>
 </ol>
 <h2 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h2><p>在之前的基于内容的推荐系统中，对于每一部电影，我们都掌握了可用的特征，使用这些特征训练出了每一个用户的参数。相反地，如果我们拥有用户的参数，我们可以学习得出电影的特征。</p>
-<p>但如果我们既没有用户的参数，也没有电影的特征，这两种方法都不可行了。协同过滤算法可以同时学习这两者。此时的优化目标便改为同时针对$\bf{x}$和$\bf{\theta}$进行。</p>
+<p>但如果我们既没有用户的参数，也没有电影的特征，这两种方法都不可行了。协同过滤算法可以同时学习这两者。此时的优化目标便改为同时针对$\bf{x}$和$\bf{\theta}​$进行。</p>
 <p>此时损失函数为：</p>
 <script type="math/tex; mode=display">
 L(\bf{\theta}, \bf{x})=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}\sum\limits_{j=1}^{n_{user}}||\bf{\theta}^j||_2^2+\frac{\lambda}{2}\sum\limits_{i=1}^{n_{movie}}||\bf{x}^i||_2^2</script><p>同时通过梯度下降法对$\bf{x}$和$\bf{\theta}$更新，即可得到所有的特征，并利用这些特征为用户提供推荐。</p>
