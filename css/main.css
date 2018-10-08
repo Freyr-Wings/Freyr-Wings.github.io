@@ -80,7 +80,6 @@ sub {
 }
 img {
   border: 0;
-  margin: auto;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -1836,7 +1835,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #db9dff;
+  background: #634d37;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2809,7 +2808,7 @@ hr {
   background: #222;
 }
 .posts-expand .post-body img {
-  margin: 0;
+  margin: auto;
 }
 .posts-expand .post-tags {
   text-align: left;
