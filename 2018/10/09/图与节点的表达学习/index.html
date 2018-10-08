@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/sdne-model.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/deepwalk.jpg">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/node2vec2.png">
-<meta property="og:updated_time" content="2018-10-08T17:35:30.377Z">
+<meta property="og:updated_time" content="2018-10-08T18:02:20.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图与节点的表达学习">
 <meta name="twitter:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
@@ -529,7 +529,7 @@ f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\
 \therefore LY=-DY\Lambda=\lambda DY\\
 \therefore min(J)\Leftrightarrow min(tr(\lambda))</script><p>特别的注意到</p>
 <script type="math/tex; mode=display">
-D\cdot \bf{1}= W\cdot \bf{1}</script><p>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
+D\cdot \bf{1}= W\cdot \bf{1}</script><p>所以目标函数有平凡解，对应特征向量为$\bf{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
 <h1 id="SDNE"><a href="#SDNE" class="headerlink" title="SDNE"></a>SDNE</h1><p>SDNE是一个半监督的神经网络模型，由两部分组成</p>
 <img src="/2018/10/09/图与节点的表达学习/sdne-model.png" title="sdne-model">
 <p>论文中指出下面两个定义：</p>
