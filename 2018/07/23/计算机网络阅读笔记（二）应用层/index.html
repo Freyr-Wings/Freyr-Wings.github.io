@@ -458,36 +458,44 @@
       
         <p>计算机网络第二章阅读笔记</p>
 <a id="more"></a>
-<h1 id="应用层协议原理"><a href="#应用层协议原理" class="headerlink" title="应用层协议原理"></a>应用层协议原理</h1><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><p>客户-服务器体系结构（服务器有固定周知的IP，配备大量主机的数据中心）</p>
+<h1 id="应用层协议原理">应用层协议原理</h1>
+<h2 id="体系结构">体系结构</h2>
+<p>客户-服务器体系结构（服务器有固定周知的IP，配备大量主机的数据中心）</p>
 <p>P2P体系结构</p>
-<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><ol>
+<h2 id="进程通信">进程通信</h2>
+<ol type="1">
 <li>发起通信的为客户，等待联系的是服务器</li>
 <li>套接字是应用层和运输层之间的接口，也称API</li>
 <li>标识接收进程：主机地址（IP地址）+接收进程的标识符（端口号）</li>
 </ol>
-<h2 id="运输层协议提供的服务"><a href="#运输层协议提供的服务" class="headerlink" title="运输层协议提供的服务"></a>运输层协议提供的服务</h2><p>可靠数据传输、吞吐量（特定的传输速率）、定时（时延控制）、安全性</p>
-<h1 id="Web和HTTP"><a href="#Web和HTTP" class="headerlink" title="Web和HTTP"></a>Web和HTTP</h1><p>URL地址：服务器主机名+对象路径名</p>
+<h2 id="运输层协议提供的服务">运输层协议提供的服务</h2>
+<p>可靠数据传输、吞吐量（特定的传输速率）、定时（时延控制）、安全性</p>
+<h1 id="web和http">Web和HTTP</h1>
+<p>URL地址：服务器主机名+对象路径名</p>
 <img src="/2018/07/23/计算机网络阅读笔记（二）应用层/http-request.png" title="http-request">
 <img src="/2018/07/23/计算机网络阅读笔记（二）应用层/http-response.png" title="http-response">
-<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>四个组件：</p>
-<ol>
+<h2 id="cookie">cookie</h2>
+<p>四个组件：</p>
+<ol type="1">
 <li>HTTP响应报文中的cookie首部行</li>
 <li>HTTP请求报文中的cookie首部行</li>
 <li>用户端系统保留的cookie文件，由浏览器进行管理</li>
 <li>web站点的后台数据库</li>
 </ol>
 <p>关键词：Set-Cookie、用户标识</p>
-<h2 id="HTTP1-0与HTTP1-1差异"><a href="#HTTP1-0与HTTP1-1差异" class="headerlink" title="HTTP1.0与HTTP1.1差异"></a>HTTP1.0与HTTP1.1差异</h2><ol>
+<h2 id="http1.0与http1.1差异">HTTP1.0与HTTP1.1差异</h2>
+<ol type="1">
 <li>请求方法，HTTP1.1增加了OPTIONS,PUT, DELETE, TRACE, CONNECT这些Request方法以及新的状态码</li>
 <li>HTTP 1.1则支持持久连接。Connection请求头的值为Keep-Alive时，客户端通知服务器返回本次请求结果后保持连接；Connection请求头的值为close时，客户端通知服务器返回本次请求结果后关闭连接。</li>
 <li>在同一个tcp的连接中可以传送多个HTTP请求和响应。</li>
 <li>HTTP 1.1还提供了与身份认证、状态管理和Cache缓存等机制相关的请求头和响应头。</li>
 <li>HTTP 1.1和1.0都是可以扩展的，通过cookie，session，增强应用层</li>
 </ol>
-<p><a href="https://blog.csdn.net/hguisu/article/details/8608888" target="_blank" rel="noopener">https://blog.csdn.net/hguisu/article/details/8608888</a></p>
-<h2 id="Web缓存与条件GET方法"><a href="#Web缓存与条件GET方法" class="headerlink" title="Web缓存与条件GET方法"></a>Web缓存与条件GET方法</h2><p>web缓存器，也叫代理服务器，用于在存储空间内保存最近请求过的对象的副本</p>
+<p>https://blog.csdn.net/hguisu/article/details/8608888</p>
+<h2 id="web缓存与条件get方法">Web缓存与条件GET方法</h2>
+<p>web缓存器，也叫代理服务器，用于在存储空间内保存最近请求过的对象的副本</p>
 <p>web缓存器作用：</p>
-<ol>
+<ol type="1">
 <li>减少对客户请求的响应时间</li>
 <li>减少机构的接入链路到因特网的通信量（不必急于增加带宽）</li>
 </ol>
@@ -495,95 +503,108 @@
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1  </span><br><span class="line"><span class="attribute">Host</span>: www.sina.com.cn:80  </span><br><span class="line"><span class="attribute">If-Modified-Since</span>: Thu, 4 Feb 2010 20:39:13 GMT  </span><br><span class="line"><span class="attribute">Connection</span>: Close</span><br></pre></td></tr></table></figure>
 <p>如果没有更改：</p>
 <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 <span class="number">304</span> Not Modified  </span><br><span class="line"><span class="attribute">Date</span>: Thu, 04 Feb 2010 12:38:41 GMT  </span><br><span class="line"><span class="attribute">Content-Type</span>: text/html  </span><br><span class="line"><span class="attribute">Expires</span>: Thu, 04 Feb 2010 12:39:41 GMT  </span><br><span class="line"><span class="attribute">Last-Modified</span>: Thu, 04 Feb 2010 12:29:04 GMT  </span><br><span class="line"><span class="attribute">Age</span>: 28  </span><br><span class="line"><span class="attribute">X-Cache</span>: HIT from sy32-21.sina.com.cn  </span><br><span class="line"><span class="attribute">Connection</span>: close</span><br></pre></td></tr></table></figure>
-<p>如果发生更改就把客户端的请求当作一个普通的Get请求发送相应报文 </p>
-<h1 id="文件传输协议FTP"><a href="#文件传输协议FTP" class="headerlink" title="文件传输协议FTP"></a>文件传输协议FTP</h1><p>使用两个并行的TCP连接来传输文件</p>
+<p>如果发生更改就把客户端的请求当作一个普通的Get请求发送相应报文</p>
+<h1 id="文件传输协议ftp">文件传输协议FTP</h1>
+<p>使用两个并行的TCP连接来传输文件</p>
 <p>控制连接（贯穿整个用户会话）：用户标识、口令、改变远程目录</p>
 <p>数据连接（每次文件传输都建立新的连接）：文件传输</p>
 <p>关键词：<strong>带外</strong>传送</p>
 <p>下面是一些常用命令，它们经控制信道以ASCII 文本发送：</p>
-<p>USER username：用于向服务器传送用户标识。<br>PASS password：用于向服务器传送用户口令。<br>LIST：返回当前目录中的文件列表，文件列表是在（新建的非持久连接）数据连接上传送的。<br>RETR filename：获取(get) 文件，该命令触发远程主机发起一个数据连接，并在该数据连接上发送所请求文件。<br>STOR filename：存储 (put)文件到远程主机。</p>
+<p>USER username：用于向服务器传送用户标识。 PASS password：用于向服务器传送用户口令。 LIST：返回当前目录中的文件列表，文件列表是在（新建的非持久连接）数据连接上传送的。 RETR filename：获取(get) 文件，该命令触发远程主机发起一个数据连接，并在该数据连接上发送所请求文件。 STOR filename：存储 (put)文件到远程主机。</p>
 <p>下面是一些常见的状态码及相应短语(如在HTTP中的那样)：</p>
-<p>331 Username OK, password required<br>125 data connection already open; transfer starting<br>425 Can’t open data connection<br>452 Error writing file</p>
-<h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p>三个组成部分：用户代理、邮件服务器、简单邮件传输协议（SMTP）</p>
-<h2 id="SMTP-Simple-Mail-Transfer-Protocol"><a href="#SMTP-Simple-Mail-Transfer-Protocol" class="headerlink" title="SMTP(Simple Mail Transfer Protocol)"></a>SMTP(Simple Mail Transfer Protocol)</h2><p>用于从发送方的邮件服务器发送报文到接收方的邮件服务器，一般不使用中间邮件服务器发送邮件</p>
+<p>331 Username OK, password required 125 data connection already open; transfer starting 425 Can’t open data connection 452 Error writing file</p>
+<h1 id="电子邮件">电子邮件</h1>
+<p>三个组成部分：用户代理、邮件服务器、简单邮件传输协议（SMTP）</p>
+<h2 id="smtpsimple-mail-transfer-protocol">SMTP(Simple Mail Transfer Protocol)</h2>
+<p>用于从发送方的邮件服务器发送报文到接收方的邮件服务器，一般不使用中间邮件服务器发送邮件</p>
 <img src="/2018/07/23/计算机网络阅读笔记（二）应用层/SMTP.png" title="(SMTP code)">
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">S: <span class="number">220</span> hamburger.edu  <span class="comment">// 与服务器创建TCP连接之后，服务器响应220标识服务就绪</span></span><br><span class="line">C: HELO crepes.fr  <span class="comment">// 向服务器标识用户身份</span></span><br><span class="line">S: <span class="number">250</span> Hello crepes.fr, pleased to meet you  <span class="comment">// 服务器返回欢迎信息</span></span><br><span class="line">C: MAIL FROM: &lt;alice@crepes.fr&gt;  <span class="comment">// 指定发送者邮箱</span></span><br><span class="line">S: <span class="number">250</span> alice@crepes.fr ... Sender ok  <span class="comment">// </span></span><br><span class="line">C: RCPT TO: &lt;bob@hamburger.edu&gt;  <span class="comment">// 指定接受者邮箱</span></span><br><span class="line">S: <span class="number">250</span> bob@hamburger.edu ... Recipient ok  <span class="comment">// </span></span><br><span class="line">C: DATA  <span class="comment">// 请求发送数据</span></span><br><span class="line">S: <span class="number">354</span> Enter mail, end with “.” on a line by itself  <span class="comment">// 开始邮件输入</span></span><br><span class="line">C: Do you like ketchup?  <span class="comment">// </span></span><br><span class="line">C: How about pickles?  <span class="comment">// </span></span><br><span class="line">C: .  <span class="comment">// 以包含一个句点的行指示报文结束</span></span><br><span class="line">S: <span class="number">250</span> Message accepted <span class="keyword">for</span> delivery  <span class="comment">// 接收成功</span></span><br><span class="line">C: QUIT  <span class="comment">// 退出链接</span></span><br><span class="line">S: <span class="number">221</span> hamburger.edu closing connection  <span class="comment">// 服务器关闭传输通道</span></span><br></pre></td></tr></table></figure>
-<h2 id="HTTP与SMTP"><a href="#HTTP与SMTP" class="headerlink" title="HTTP与SMTP"></a>HTTP与SMTP</h2><ol>
+<h2 id="http与smtp">HTTP与SMTP</h2>
+<ol type="1">
 <li>两者都使用持续连接，但HTTP是<strong>拉协议</strong>，SMTP是<strong>推协议</strong></li>
 <li>SMTP限制使用7比特ASCII码格式，而HTTP不限制</li>
 <li>对于既包含文本又包含文件的文档，HTTP将每个对象封装到其独立的响应报文中，而SMTP将所有对象放在一个报文中</li>
 </ol>
-<h2 id="邮件访问协议"><a href="#邮件访问协议" class="headerlink" title="邮件访问协议"></a>邮件访问协议</h2><h3 id="POP3-Post-Office-Protocol-ver3"><a href="#POP3-Post-Office-Protocol-ver3" class="headerlink" title="POP3(Post Office Protocol-ver3)"></a>POP3(Post Office Protocol-ver3)</h3><table>
+<h2 id="邮件访问协议">邮件访问协议</h2>
+<h3 id="pop3post-office-protocol-ver3">POP3(Post Office Protocol-ver3)</h3>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>POP3命令格式</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>user username<crlf></crlf></td>
 <td>user 命令是POP3客户端程序与POP3邮件服务器建立连接后通常发送的第一条命令，参数 username 表示收件人的帐户名称。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>pass password<crlf></crlf></td>
 <td>pass 命令是在user命令成功通过后，POP3客户端程序接着发送的命令，它用于传递帐户的密码，参数 password 表示帐户的密码。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>apop name,digest<crlf></crlf></td>
 <td>apop 命令用于替代user和pass命令，它以MD5 数字摘要的形式向POP3邮件服务器提交帐户密码。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>stat<crlf></crlf></td>
 <td>stat 命令用于查询邮箱中的统计信息，例如：邮箱中的邮件数量和邮件占用的字节大小等。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>uidl msg#<crlf></crlf></td>
 <td>uidl 命令用于查询某封邮件的唯一标志符，参数msg#表示邮件的序号，是一个从1开始编号的数字。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>list [MSG#]<crlf></crlf></td>
 <td>list 命令用于列出邮箱中的邮件信息，参数 msg#是一个可选参数，表示邮件的序号。当不指定参数时，POP3服务器列出邮箱中所有的邮件信息；当指定参数msg#时，POP3服务器只返回序号对应的邮件信息。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>retr msg#<crlf></crlf></td>
 <td>retr 命令用于获取某封邮件的内容，参数 msg#表示邮件的序号。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>dele msg#<crlf></crlf></td>
 <td>dele 命令用于在某封邮件上设置删除标记，参数msg#表示邮件的序号。POP3服务器执行dele命令时，只是为邮件设置了删除标记，并没有真正把邮件删除掉，只有POP3客户端发出quit命令后，POP3服务器才会真正删除所有设置了删除标记的邮件。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>rest<crlf></crlf></td>
 <td>rest 命令用于清除所有邮件的删除标记。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>top msg# n<crlf></crlf></td>
 <td>top 命令用于获取某封邮件的邮件头和邮件体中的前n行内容，参数msg#表示邮件的序号，参数n表示要返回邮件的前几行内容。使用这条命令以提高 Web Mail系统（通过Web站点上收发邮件）中的邮件列表显示的处理效率，因为这种情况下不需要获取每封邮件的完整内容，而是仅仅需要获取每封邮件的邮件头信息。</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>noop<crlf></crlf></td>
 <td>noop 命令用于检测POP3客户端与POP3服务器的连接情况。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>quit<crlf></crlf></td>
 <td>quit 命令表示要结束邮件接收过程，POP3服务器接收到此命令后，将删除所有设置了删除标记的邮件，并关闭与POP3客户端程序的网络连接。</td>
 </tr>
 </tbody>
 </table>
-<h3 id="IMAP-Internet-Mail-Access-Protocol"><a href="#IMAP-Internet-Mail-Access-Protocol" class="headerlink" title="IMAP(Internet Mail Access Protocol)"></a>IMAP(Internet Mail Access Protocol)</h3><ol>
+<h3 id="imapinternet-mail-access-protocol">IMAP(Internet Mail Access Protocol)</h3>
+<ol type="1">
 <li>提供创建文件夹和移动邮件的功能</li>
 <li>提供远程文件夹查询邮件的功能</li>
 <li>允许用户代理获取报文组件而不必取回完整邮件</li>
 </ol>
-<h3 id="两者比较"><a href="#两者比较" class="headerlink" title="两者比较"></a>两者比较</h3><ol>
+<h3 id="两者比较">两者比较</h3>
+<ol type="1">
 <li>IMAP具有摘要浏览功能，可以让用户在读完所有邮件的主题、发件人、大小等信息后，再由用户做出是否下载或直接在服务器上删除的决定。</li>
 <li>IMAP可以让用户有选择性地下载邮件附件。例如一封邮件包含3个附件，如果用户确定其中只有2个附件对自已有用，就可只下载这2个附件，而不必下载整封邮件，从而节省了下载时间。</li>
 <li>IMAP可以让用户在邮件服务器上创建自己的邮件夹，分类保存各个邮件。</li>
 </ol>
-<h1 id="DNS-Domain-Name-System-域名系统-采用UDP"><a href="#DNS-Domain-Name-System-域名系统-采用UDP" class="headerlink" title="DNS(Domain Name System 域名系统)(采用UDP)"></a>DNS(Domain Name System 域名系统)(采用UDP)</h1><p>作用：主机名到IP地址转换的目录服务</p>
+<h1 id="dnsdomain-name-system-域名系统采用udp">DNS(Domain Name System 域名系统)(采用UDP)</h1>
+<p>作用：主机名到IP地址转换的目录服务</p>
 <p>DNS是</p>
-<ol>
+<ol type="1">
 <li>一个由分层的DNS服务器实现的分布式数据库</li>
 <li>一个使得主机能够查询分布式数据库的应用层协议</li>
 </ol>
@@ -591,17 +612,18 @@
 <li><strong>递归查询</strong>：请求主机向本地域名服务器发出一次查询请求，就静待最终的结果。如果本地域名服务器无法解析，自己会以DNS客户机的身份向其它域名服务器查询，直到得到最终的IP地址告诉本机</li>
 <li><strong>迭代查询</strong>：本地域名服务器向根域名服务器查询，根域名服务器告诉它下一步到哪里去查询，然后它再去查，每次它都是以客户机的身份去各个服务器查询</li>
 </ul>
-<p><a href="https://jocent.me/2017/06/18/dns-protocol-principle.html" target="_blank" rel="noopener">https://jocent.me/2017/06/18/dns-protocol-principle.html</a></p>
-<h1 id="DHCP-Dynamic-Host-Configuration-动态主机配置协议-采用UDP"><a href="#DHCP-Dynamic-Host-Configuration-动态主机配置协议-采用UDP" class="headerlink" title="DHCP(Dynamic Host Configuration)动态主机配置协议(采用UDP)"></a>DHCP(Dynamic Host Configuration)动态主机配置协议(采用UDP)</h1><p>四个步骤</p>
-<ol>
+<p>https://jocent.me/2017/06/18/dns-protocol-principle.html</p>
+<h1 id="dhcpdynamic-host-configuration动态主机配置协议采用udp">DHCP(Dynamic Host Configuration)动态主机配置协议(采用UDP)</h1>
+<p>四个步骤</p>
+<ol type="1">
 <li>discover，客户通过广播发送发现报文</li>
 <li>offer，服务器通过广播为客户端提供可选的IP地址、网络掩码、IP地址租用期</li>
 <li>request，客户端选定IP，向对应的服务器发送请求报文</li>
 <li>ACK，对请求报文进行响应，表示用户可以在租借期内使用该IP地址。</li>
 </ol>
 <p>其他参考：</p>
-<p><a href="https://blog.csdn.net/qq_35644234/article/details/68961603" target="_blank" rel="noopener">https://blog.csdn.net/qq_35644234/article/details/68961603</a></p>
-<p><a href="https://blog.csdn.net/u014558484/article/details/53150038" target="_blank" rel="noopener">https://blog.csdn.net/u014558484/article/details/53150038</a></p>
+<p>https://blog.csdn.net/qq_35644234/article/details/68961603</p>
+<p>https://blog.csdn.net/u014558484/article/details/53150038</p>
 
       
     </div>
@@ -798,7 +820,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层协议原理"><span class="nav-number">1.</span> <span class="nav-text">应用层协议原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程通信"><span class="nav-number">1.2.</span> <span class="nav-text">进程通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层协议提供的服务"><span class="nav-number">1.3.</span> <span class="nav-text">运输层协议提供的服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web和HTTP"><span class="nav-number">2.</span> <span class="nav-text">Web和HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">2.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP1-0与HTTP1-1差异"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP1.0与HTTP1.1差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web缓存与条件GET方法"><span class="nav-number">2.3.</span> <span class="nav-text">Web缓存与条件GET方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件传输协议FTP"><span class="nav-number">3.</span> <span class="nav-text">文件传输协议FTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电子邮件"><span class="nav-number">4.</span> <span class="nav-text">电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SMTP-Simple-Mail-Transfer-Protocol"><span class="nav-number">4.1.</span> <span class="nav-text">SMTP(Simple Mail Transfer Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP与SMTP"><span class="nav-number">4.2.</span> <span class="nav-text">HTTP与SMTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件访问协议"><span class="nav-number">4.3.</span> <span class="nav-text">邮件访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#POP3-Post-Office-Protocol-ver3"><span class="nav-number">4.3.1.</span> <span class="nav-text">POP3(Post Office Protocol-ver3)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IMAP-Internet-Mail-Access-Protocol"><span class="nav-number">4.3.2.</span> <span class="nav-text">IMAP(Internet Mail Access Protocol)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者比较"><span class="nav-number">4.3.3.</span> <span class="nav-text">两者比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DNS-Domain-Name-System-域名系统-采用UDP"><span class="nav-number">5.</span> <span class="nav-text">DNS(Domain Name System 域名系统)(采用UDP)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DHCP-Dynamic-Host-Configuration-动态主机配置协议-采用UDP"><span class="nav-number">6.</span> <span class="nav-text">DHCP(Dynamic Host Configuration)动态主机配置协议(采用UDP)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#应用层协议原理"><span class="nav-number">1.</span> <span class="nav-text">应用层协议原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">1.1.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程通信"><span class="nav-number">1.2.</span> <span class="nav-text">进程通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层协议提供的服务"><span class="nav-number">1.3.</span> <span class="nav-text">运输层协议提供的服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web和http"><span class="nav-number">2.</span> <span class="nav-text">Web和HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">2.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http1.0与http1.1差异"><span class="nav-number">2.2.</span> <span class="nav-text">HTTP1.0与HTTP1.1差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web缓存与条件get方法"><span class="nav-number">2.3.</span> <span class="nav-text">Web缓存与条件GET方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件传输协议ftp"><span class="nav-number">3.</span> <span class="nav-text">文件传输协议FTP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#电子邮件"><span class="nav-number">4.</span> <span class="nav-text">电子邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#smtpsimple-mail-transfer-protocol"><span class="nav-number">4.1.</span> <span class="nav-text">SMTP(Simple Mail Transfer Protocol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http与smtp"><span class="nav-number">4.2.</span> <span class="nav-text">HTTP与SMTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件访问协议"><span class="nav-number">4.3.</span> <span class="nav-text">邮件访问协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pop3post-office-protocol-ver3"><span class="nav-number">4.3.1.</span> <span class="nav-text">POP3(Post Office Protocol-ver3)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#imapinternet-mail-access-protocol"><span class="nav-number">4.3.2.</span> <span class="nav-text">IMAP(Internet Mail Access Protocol)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两者比较"><span class="nav-number">4.3.3.</span> <span class="nav-text">两者比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dnsdomain-name-system-域名系统采用udp"><span class="nav-number">5.</span> <span class="nav-text">DNS(Domain Name System 域名系统)(采用UDP)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dhcpdynamic-host-configuration动态主机配置协议采用udp"><span class="nav-number">6.</span> <span class="nav-text">DHCP(Dynamic Host Configuration)动态主机配置协议(采用UDP)</span></a></li></ol></div>
             
 
           </div>

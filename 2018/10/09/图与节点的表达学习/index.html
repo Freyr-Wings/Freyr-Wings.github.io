@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
+<meta name="description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
 <meta name="keywords" content="Network Embedding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图与节点的表达学习">
 <meta property="og:url" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/index.html">
 <meta property="og:site_name" content="弗雷的小屋">
-<meta property="og:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
+<meta property="og:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/sdne-model.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/node2vec2.png">
-<meta property="og:updated_time" content="2018-10-08T16:23:23.313Z">
+<meta property="og:updated_time" content="2018-10-08T16:37:38.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图与节点的表达学习">
-<meta name="twitter:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
+<meta name="twitter:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
 <meta name="twitter:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/sdne-model.png">
 
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  1,506 字
+                  1,508 字
                 </span>
               
 
@@ -456,99 +456,145 @@
 
       
         <p>本博客是对一个图与表达学习库中涉及的模型进行讲解</p>
-<p>表达学习库的地址为：<a href="https://github.com/thunlp/OpenNE" target="_blank" rel="noopener">https://github.com/thunlp/OpenNE</a></p>
+<p>表达学习库的地址为：https://github.com/thunlp/OpenNE</p>
 <a id="more"></a>
-<h1 id="图的表示（输入）"><a href="#图的表示（输入）" class="headerlink" title="图的表示（输入）"></a>图的表示（输入）</h1><h2 id="edgelist"><a href="#edgelist" class="headerlink" title="edgelist"></a>edgelist</h2><p>用边来表示整个图，这种表达方式更常用一些</p>
+<h1 id="图的表示输入">图的表示（输入）</h1>
+<h2 id="edgelist">edgelist</h2>
+<p>用边来表示整个图，这种表达方式更常用一些</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ori_node dest_node weight_float(optional)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="adjlist"><a href="#adjlist" class="headerlink" title="adjlist"></a>adjlist</h2><p>用邻接节点表示整个图</p>
+<h2 id="adjlist">adjlist</h2>
+<p>用邻接节点表示整个图</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ori_node dest_node1 dest_node2 dest_node3 dest_node4 ...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="feature文件"><a href="#feature文件" class="headerlink" title="feature文件"></a>feature文件</h2><p>用该文件可以为节点附加额外的特征</p>
+<h2 id="feature文件">feature文件</h2>
+<p>用该文件可以为节点附加额外的特征</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node feature_1 feature_2 ... feature_n</span><br></pre></td></tr></table></figure>
-<h1 id="我们希望得到的"><a href="#我们希望得到的" class="headerlink" title="我们希望得到的"></a>我们希望得到的</h1><h2 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num_of_nodes num_of_dims_of_representation</span><br><span class="line">node_id dim1 dim2 ... dimd</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="模型输出"><a href="#模型输出" class="headerlink" title="模型输出"></a>模型输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model = Node2vec(graph=g, path_length=<span class="number">80</span>,</span><br><span class="line">                 num_paths=<span class="number">10</span>, dim=<span class="number">128</span>,</span><br><span class="line">                 p=<span class="number">1.</span>, q=<span class="number">1.</span>, window=<span class="number">10</span>)</span><br><span class="line">vectors = model.vectors</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">&#123;<span class="string">'1248'</span>: array([ <span class="number">9.77877006e-02</span>, ...]),</span><br><span class="line"> <span class="string">'601'</span>: array([<span class="number">-0.24153167</span>, ...]), ...&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h1><p>$$<br>Macro-F1=\frac{\sum_{A\in \mathcal{C}}F1(A)}{|\mathcal{C}|}<br>$$</p>
-<p>$$<br>Pr=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FP(A))},R=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FN(A))}\\<br>Micro-F1=\frac{2<em>Pr</em>R}{Pr+R}<br>$$</p>
-<h1 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h1><table>
+<h1 id="我们希望得到的">我们希望得到的</h1>
+<h2 id="文件输出">文件输出</h2>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num_of_nodes num_of_dims_of_representation</span><br><span class="line">node_id dim1 dim2 ... dimd</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="模型输出">模型输出</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model = Node2vec(graph=g, path_length=<span class="number">80</span>,</span><br><span class="line">                 num_paths=<span class="number">10</span>, dim=<span class="number">128</span>,</span><br><span class="line">                 p=<span class="number">1.</span>, q=<span class="number">1.</span>, window=<span class="number">10</span>)</span><br><span class="line">vectors = model.vectors</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">&#123;<span class="string">'1248'</span>: array([ <span class="number">9.77877006e-02</span>, ...]),</span><br><span class="line"> <span class="string">'601'</span>: array([<span class="number">-0.24153167</span>, ...]), ...&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="评测">评测</h1>
+<p><span class="math display">\[
+Macro-F1=\frac{\sum_{A\in \mathcal{C}}F1(A)}{|\mathcal{C}|}
+\]</span></p>
+<p><span class="math display">\[
+Pr=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FP(A))},R=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FN(A))}\\
+Micro-F1=\frac{2*Pr*R}{Pr+R}
+\]</span></p>
+<h1 id="notation">Notation</h1>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>符号</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>$$W$$</td>
-<td>图的邻接矩阵，$$\vert V \vert \times \vert V \vert$$</td>
+<tr class="odd">
+<td><span class="math display">\[W\]</span></td>
+<td>图的邻接矩阵，<span class="math display">\[\vert V \vert \times \vert V \vert\]</span></td>
 </tr>
-<tr>
-<td>$$Y$$</td>
-<td>图的嵌入表达，$$\vert V \vert \times d$$</td>
+<tr class="even">
+<td><span class="math display">\[Y\]</span></td>
+<td>图的嵌入表达，<span class="math display">\[\vert V \vert \times d\]</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>d</td>
 <td>嵌入表达的维数</td>
 </tr>
 </tbody>
 </table>
-<h1 id="Graph-Factorization"><a href="#Graph-Factorization" class="headerlink" title="Graph Factorization"></a>Graph Factorization</h1><p>GF的损失函数表达如下：<br>$$<br>J=\sum_{(i,j)\in E}(W_{ij}-Y_i{Y_j}^T)^2+\lambda\sum_{i}|Y_i|^2<br>$$<br>通过梯度下降调整嵌入表达矩阵。GF认为邻接矩阵上两点对应的值应与两点的表达向量的内积相近，同时对表达向量进行了L2正则化。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<h1 id="graph-factorization">Graph Factorization</h1>
+<p>GF的损失函数表达如下： <span class="math display">\[
+J=\sum_{(i,j)\in E}(W_{ij}-Y_i{Y_j}^T)^2+\lambda\sum_{i}\|Y_i\|^2
+\]</span> 通过梯度下降调整嵌入表达矩阵。GF认为邻接矩阵上两点对应的值应与两点的表达向量的内积相近，同时对表达向量进行了L2正则化。</p>
+<h2 id="参数">参数</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数名</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>weight_decay</td>
 <td>L2正则参数</td>
 </tr>
 </tbody>
 </table>
-<h1 id="Laplacian-Eigenmaps"><a href="#Laplacian-Eigenmaps" class="headerlink" title="Laplacian Eigenmaps"></a>Laplacian Eigenmaps</h1><p><strong>注意，这个方法仅用于无向图</strong></p>
-<p>这里额外用到度矩阵$D$和拉普拉斯矩阵$L$<br>$$<br>D=diag(d_1, d_2, …)\\<br>d_i=\sum_jW_{ij}\\<br>L=D-W<br>$$<br>LE的优化函数表达如下：<br>$$<br>J=\sum_{i,j}| Y_i-Y_j|_2^2W_{ij}=tr(Y^TLY)\\<br>s.t. Y^TDY=I<br>$$<br>其中的限制条件是为了防止嵌入表达矩阵任意放缩</p>
-<p>利用拉格朗日乘子法对目标函数求解<br>$$<br>f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\<br>\frac{\partial f(Y)}{\partial Y}=2LY+2DY\Lambda=0\\<br>\therefore LY=-DY\Lambda=\lambda DY\\<br>\therefore min(J)\Leftrightarrow min(tr(\lambda))<br>$$<br>特别的注意到<br>$$<br>D\cdot \bf{1}= W\cdot \bf{1}<br>$$<br>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
-<h1 id="SDNE"><a href="#SDNE" class="headerlink" title="SDNE"></a>SDNE</h1><p>SDNE是一个半监督的神经网络模型，由两部分组成</p>
+<h1 id="laplacian-eigenmaps">Laplacian Eigenmaps</h1>
+<p><strong>注意，这个方法仅用于无向图</strong></p>
+<p>这里额外用到度矩阵<span class="math inline">\(D\)</span>和拉普拉斯矩阵<span class="math inline">\(L\)</span> <span class="math display">\[
+D=diag(d_1, d_2, ...)\\
+d_i=\sum_jW_{ij}\\
+L=D-W
+\]</span> LE的优化函数表达如下： <span class="math display">\[
+J=\sum_{i,j}\| Y_i-Y_j\|_2^2W_{ij}=tr(Y^TLY)\\
+s.t. Y^TDY=I
+\]</span> 其中的限制条件是为了防止嵌入表达矩阵任意放缩</p>
+<p>利用拉格朗日乘子法对目标函数求解 <span class="math display">\[
+f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\
+\frac{\partial f(Y)}{\partial Y}=2LY+2DY\Lambda=0\\
+\therefore LY=-DY\Lambda=\lambda DY\\
+\therefore min(J)\Leftrightarrow min(tr(\lambda))
+\]</span> 特别的注意到 <span class="math display">\[
+D\cdot \bf{1}= W\cdot \bf{1}
+\]</span> 所以目标函数有平凡解，对应特征向量为<span class="math inline">\(\bold{1}\)</span>，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为<span class="math inline">\(\lambda\)</span>，取对应的特征向量作为最后的表达矩阵</p>
+<h1 id="sdne">SDNE</h1>
+<p>SDNE是一个半监督的神经网络模型，由两部分组成</p>
 <img src="/2018/10/09/图与节点的表达学习/sdne-model.png" title="sdne-model">
 <p>论文中指出下面两个定义：</p>
 <ul>
 <li>一阶近似：对于两个点而言，其邻接矩阵上对应的值为一阶近似值</li>
-<li>二阶近似：即$W_i$与$W_j$之间的相似性</li>
+<li>二阶近似：即<span class="math inline">\(W_i\)</span>与<span class="math inline">\(W_j\)</span>之间的相似性</li>
 </ul>
-<p>其损失函数表达如下，<br>$$<br>\mathcal{L}_{1st}=\sum_{i,j}W_{ij}| Y_i-Y_j|_2^2\\<br>\mathcal{L}_{2nd}=\sum_i|(\hat{Y}_i-Y_i)\odot B_i |_2^2\\<br>B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta&gt;1<br>$$<br>特别的，在考虑$\mathcal{L}_{2nd}$的时候提到，可以想到两点之间没有连接，也就是邻接矩阵上值为0，未必就意味着两点之间没有联系，同时对于邻接矩阵为稀疏矩阵的情况下，Autoencoder更倾向于构建零矩阵，因此加入矩阵$B$</p>
-<p>最后，总的损失函数表达如下：<br>$$<br>\mathcal{L}_{mix}=\mathcal{L}_{2nd}+\alpha\mathcal{L}_{1st}+\nu\mathcal{L}_{reg}<br>$$<br>其中最后一项为对神经网络的L2正则化</p>
-<h2 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h2><table>
+<p>其损失函数表达如下， <span class="math display">\[
+\mathcal{L}_{1st}=\sum_{i,j}W_{ij}\| Y_i-Y_j\|_2^2\\
+\mathcal{L}_{2nd}=\sum_i\|(\hat{Y}_i-Y_i)\odot B_i \|_2^2\\
+B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta&gt;1
+\]</span> 特别的，在考虑<span class="math inline">\(\mathcal{L}_{2nd}\)</span>的时候提到，可以想到两点之间没有连接，也就是邻接矩阵上值为0，未必就意味着两点之间没有联系，同时对于邻接矩阵为稀疏矩阵的情况下，Autoencoder更倾向于构建零矩阵，因此加入矩阵<span class="math inline">\(B\)</span></p>
+<p>最后，总的损失函数表达如下： <span class="math display">\[
+\mathcal{L}_{mix}=\mathcal{L}_{2nd}+\alpha\mathcal{L}_{1st}+\nu\mathcal{L}_{reg}
+\]</span> 其中最后一项为对神经网络的L2正则化</p>
+<h2 id="参数-1">参数</h2>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>参数名</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>encoder_layer_list</td>
 <td>autoencoder中encoder各层的神经元数，如共有2000个点，该参数为[1000, 200]，则autoencoder的网络表示为2000(input)-&gt;1000-&gt;200-&gt;1000-&gt;2000，200为最后嵌入表达的维数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>alpha</td>
 <td>一阶近似损失中用到的参数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>beta</td>
 <td>二阶近似损失中用到的参数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>nu1</td>
 <td>L1正则参数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>nu2</td>
 <td>L2正则参数</td>
 </tr>
 </tbody>
 </table>
-<h1 id="DeepWalk-amp-Node2vec"><a href="#DeepWalk-amp-Node2vec" class="headerlink" title="DeepWalk &amp; Node2vec"></a>DeepWalk &amp; Node2vec</h1><p>deepwalk的步骤如下：</p>
-<ol>
+<h1 id="deepwalk-node2vec">DeepWalk &amp; Node2vec</h1>
+<p>deepwalk的步骤如下：</p>
+<ol type="1">
 <li>图</li>
 <li>随机游走得到节点序列</li>
 <li>利用skip gram模型得到表达</li>
@@ -556,51 +602,76 @@
 
 <p>node2vec唯一的区别是在随机游走的过程中加入了两个参数，分别用于控制得到局部信息和整体信息</p>
 <img src="/2018/10/09/图与节点的表达学习/node2vec2.png" title="node2vec2">
-<p>其中随机游走的转移概率（从点$v$到点$c$）定义如下：<br>$$<br>P(c_i=x|c_{i-1}=v)=<br>\begin{cases}<br>\frac{\pi_{vx}}{Z}&amp; \text{if } (v,x)\in E\\<br>0&amp; \text{otherwise}<br>\end{cases}<br>$$<br>其中$Z$为归一化常数<br>$$<br>\pi_{vx}=\alpha_{pq}(t,x)\cdot W_{vx}\\<br>\alpha_{pq}(t,x)=<br>\begin{cases}<br>\frac{1}{p}&amp; \text{if } d_{tx}=0\\<br>1&amp; \text{if } d_{tx}=1\\<br>\frac{1}{q}&amp; \text{if } d_{tx}=2\\<br>\end{cases},其中d为t与x之间的边数<br>$$<br>此外node2vec论文中还提到一些边预测和边采样的方式，详见论文。</p>
-<h2 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h2><table>
+<p>其中随机游走的转移概率（从点<span class="math inline">\(v\)</span>到点<span class="math inline">\(c\)</span>）定义如下： <span class="math display">\[
+P(c_i=x|c_{i-1}=v)=
+\begin{cases}
+\frac{\pi_{vx}}{Z}&amp; \text{if } (v,x)\in E\\
+0&amp; \text{otherwise}
+\end{cases}
+\]</span> 其中<span class="math inline">\(Z\)</span>为归一化常数 <span class="math display">\[
+\pi_{vx}=\alpha_{pq}(t,x)\cdot W_{vx}\\
+\alpha_{pq}(t,x)=
+\begin{cases}
+\frac{1}{p}&amp; \text{if } d_{tx}=0\\
+1&amp; \text{if } d_{tx}=1\\
+\frac{1}{q}&amp; \text{if } d_{tx}=2\\
+\end{cases},其中d为t与x之间的边数
+\]</span> 此外node2vec论文中还提到一些边预测和边采样的方式，详见论文。</p>
+<h2 id="参数-2">参数</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数名</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>dw</td>
 <td>是否采用deepwalk，若为True，skip-gram采用层次softmax，否则采用负采样</td>
 </tr>
-<tr>
+<tr class="even">
 <td>path_length</td>
 <td>随机游走的序列长度</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>num_paths</td>
 <td>每个点随机游走的序列数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>p</td>
 <td>控制BFS随机游走的参数</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>q</td>
 <td>控制DFS随机游走的参数</td>
 </tr>
 </tbody>
 </table>
-<h1 id="LINE"><a href="#LINE" class="headerlink" title="LINE"></a>LINE</h1><p>同样的，LINE也考虑了一阶近似和二阶近似，在一阶近似中，以预测概率和经验概率的KL散度作为损失函数<br>$$<br>预测概率p_{1ij}=\frac{1}{1+exp(-Y_i{Y_j}^T)}\\<br>经验概率\hat{p}_{2ij}=\frac{W_{ij}}{\sum_{(i,j)\in E} W_{ij}}\\<br>\mathcal{L}_{1st}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{1ij}\\<br>$$<br>在计算二阶近似时，LINE认为每个点应当有两个表达，一个是表达点本身，即$Y$，另一个则是作为其他点的特定context存在，这里记作$Y’$，两者都是待学习的参数，具体损失函数如下：<br>$$<br>预测概率p_{2}(v_j|v_i)=\frac{\text{exp}(Y_i{Y_j}’^T)}{\sum_{k=1}^{|V|}\text{exp}(Y_i{Y_k}’^T))}\\<br>经验概率\hat{p}_{2}(v_j|v_i)=\frac{W_{ij}}{d_i},d_i为点i的出度\\<br>\mathcal{L}_{2nd}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{2}(v_j|v_i)\\<br>$$<br>与node2vec类似，这里边采样也采用alias sample进行加速，并采用负采样加速训练效果</p>
-<h2 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h2><table>
+<h1 id="line">LINE</h1>
+<p>同样的，LINE也考虑了一阶近似和二阶近似，在一阶近似中，以预测概率和经验概率的KL散度作为损失函数 <span class="math display">\[
+预测概率p_{1ij}=\frac{1}{1+exp(-Y_i{Y_j}^T)}\\
+经验概率\hat{p}_{2ij}=\frac{W_{ij}}{\sum_{(i,j)\in E} W_{ij}}\\
+\mathcal{L}_{1st}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{1ij}\\
+\]</span> 在计算二阶近似时，LINE认为每个点应当有两个表达，一个是表达点本身，即<span class="math inline">\(Y\)</span>，另一个则是作为其他点的特定context存在，这里记作<span class="math inline">\(Y&#39;\)</span>，两者都是待学习的参数，具体损失函数如下： <span class="math display">\[
+预测概率p_{2}(v_j|v_i)=\frac{\text{exp}(Y_i{Y_j}&#39;^T)}{\sum_{k=1}^{|V|}\text{exp}(Y_i{Y_k}&#39;^T))}\\
+经验概率\hat{p}_{2}(v_j|v_i)=\frac{W_{ij}}{d_i},d_i为点i的出度\\
+\mathcal{L}_{2nd}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{2}(v_j|v_i)\\
+\]</span> 与node2vec类似，这里边采样也采用alias sample进行加速，并采用负采样加速训练效果</p>
+<h2 id="参数-3">参数</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>参数名</th>
 <th>作用</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>negative_ratio</td>
 <td>负采样数量，默认为5，即每1个正样本对应5个负样本</td>
 </tr>
-<tr>
+<tr class="even">
 <td>order</td>
 <td>采用一阶近似计算或是二阶近似进行计算或是两者结合，对应值1或2或3</td>
 </tr>
@@ -798,7 +869,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图的表示（输入）"><span class="nav-number">1.</span> <span class="nav-text">图的表示（输入）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#edgelist"><span class="nav-number">1.1.</span> <span class="nav-text">edgelist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adjlist"><span class="nav-number">1.2.</span> <span class="nav-text">adjlist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature文件"><span class="nav-number">1.3.</span> <span class="nav-text">feature文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我们希望得到的"><span class="nav-number">2.</span> <span class="nav-text">我们希望得到的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输出"><span class="nav-number">2.1.</span> <span class="nav-text">文件输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型输出"><span class="nav-number">2.2.</span> <span class="nav-text">模型输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评测"><span class="nav-number">3.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Notation"><span class="nav-number">4.</span> <span class="nav-text">Notation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Graph-Factorization"><span class="nav-number">5.</span> <span class="nav-text">Graph Factorization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">5.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Laplacian-Eigenmaps"><span class="nav-number">6.</span> <span class="nav-text">Laplacian Eigenmaps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SDNE"><span class="nav-number">7.</span> <span class="nav-text">SDNE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-1"><span class="nav-number">7.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DeepWalk-amp-Node2vec"><span class="nav-number">8.</span> <span class="nav-text">DeepWalk &amp; Node2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-2"><span class="nav-number">8.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LINE"><span class="nav-number">9.</span> <span class="nav-text">LINE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-3"><span class="nav-number">9.1.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#图的表示输入"><span class="nav-number">1.</span> <span class="nav-text">图的表示（输入）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#edgelist"><span class="nav-number">1.1.</span> <span class="nav-text">edgelist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adjlist"><span class="nav-number">1.2.</span> <span class="nav-text">adjlist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature文件"><span class="nav-number">1.3.</span> <span class="nav-text">feature文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我们希望得到的"><span class="nav-number">2.</span> <span class="nav-text">我们希望得到的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输出"><span class="nav-number">2.1.</span> <span class="nav-text">文件输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型输出"><span class="nav-number">2.2.</span> <span class="nav-text">模型输出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评测"><span class="nav-number">3.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#notation"><span class="nav-number">4.</span> <span class="nav-text">Notation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#graph-factorization"><span class="nav-number">5.</span> <span class="nav-text">Graph Factorization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">5.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#laplacian-eigenmaps"><span class="nav-number">6.</span> <span class="nav-text">Laplacian Eigenmaps</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sdne"><span class="nav-number">7.</span> <span class="nav-text">SDNE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-1"><span class="nav-number">7.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deepwalk-node2vec"><span class="nav-number">8.</span> <span class="nav-text">DeepWalk &amp; Node2vec</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-2"><span class="nav-number">8.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#line"><span class="nav-number">9.</span> <span class="nav-text">LINE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数-3"><span class="nav-number">9.1.</span> <span class="nav-text">参数</span></a></li></ol></li></ol></div>
             
 
           </div>

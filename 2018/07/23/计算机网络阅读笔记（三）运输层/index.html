@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  3,544 字
+                  3,551 字
                 </span>
               
 
@@ -456,16 +456,22 @@
       
         <p>计算机网络第三章阅读笔记</p>
 <a id="more"></a>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>UDP：不可靠、无连接的服务</p>
+<h1 id="概述">概述</h1>
+<p>UDP：不可靠、无连接的服务</p>
 <p>TCP：可靠、面向连接的服务</p>
 <p>基本职责：将两个端系统间IP的交付服务拓展为运行在端系统上的两个进程之间的交付服务，称为<strong>运输层的多路复用(transport-layer multiplexing)与多路分解(demultiplexing)</strong></p>
-<h1 id="多路复用与多路分解"><a href="#多路复用与多路分解" class="headerlink" title="多路复用与多路分解"></a>多路复用与多路分解</h1><h2 id="多路分解"><a href="#多路分解" class="headerlink" title="多路分解"></a>多路分解</h2><p>将运输层报文段中的数据交付到正确的套接字</p>
+<h1 id="多路复用与多路分解">多路复用与多路分解</h1>
+<h2 id="多路分解">多路分解</h2>
+<p>将运输层报文段中的数据交付到正确的套接字</p>
 <p>实现：检查报文段中的端口号并定向到相应的套接字实现</p>
-<h2 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h2><p>源主机从不同套接字中收集数据块，并为每个数据块封装上首部信息生成报文段，然后传递到网络层</p>
-<h2 id="无连接与面向连接的"><a href="#无连接与面向连接的" class="headerlink" title="无连接与面向连接的"></a>无连接与面向连接的</h2><p>UDP套接字通过二元组（目的IP地址，目的端口号）来标识</p>
+<h2 id="多路复用">多路复用</h2>
+<p>源主机从不同套接字中收集数据块，并为每个数据块封装上首部信息生成报文段，然后传递到网络层</p>
+<h2 id="无连接与面向连接的">无连接与面向连接的</h2>
+<p>UDP套接字通过二元组（目的IP地址，目的端口号）来标识</p>
 <p>TCP套接字通过四元组（源IP地址，源端口号，目的IP地址，目的端口号）来标识</p>
-<h1 id="UDP-User-Datagram-Protocol-用户数据报协议"><a href="#UDP-User-Datagram-Protocol-用户数据报协议" class="headerlink" title="UDP(User Datagram Protocol)用户数据报协议"></a>UDP(User Datagram Protocol)用户数据报协议</h1><p>采用UDP的原因：</p>
-<ol>
+<h1 id="udpuser-datagram-protocol用户数据报协议">UDP(User Datagram Protocol)用户数据报协议</h1>
+<p>采用UDP的原因：</p>
+<ol type="1">
 <li>对发送速率有要求，并能容忍数据丢失</li>
 <li>UDP不会引入建立连接的时延，例如DNS</li>
 <li>UDP不维护连接状态</li>
@@ -473,41 +479,49 @@
 </ol>
 <p>TCP：电子邮件、远程终端访问、web及文件传输</p>
 <p>UDP：RIP路由选择表更新、SNMP简单网络管理协议 、DNS</p>
-<h1 id="可靠数据传输原理"><a href="#可靠数据传输原理" class="headerlink" title="可靠数据传输原理"></a>可靠数据传输原理</h1><h2 id="可靠数据传输协议-reliable-data-transfer-protocol-rdt1-0"><a href="#可靠数据传输协议-reliable-data-transfer-protocol-rdt1-0" class="headerlink" title="可靠数据传输协议(reliable data transfer protocol) rdt1.0"></a>可靠数据传输协议(reliable data transfer protocol) rdt1.0</h2><p>直接调用udt_send函数实现</p>
-<h2 id="rdt2-0-amp-自动重传请求协议-Automatic-Repeat-reQuest"><a href="#rdt2-0-amp-自动重传请求协议-Automatic-Repeat-reQuest" class="headerlink" title="rdt2.0&amp;自动重传请求协议(Automatic Repeat reQuest)"></a>rdt2.0&amp;自动重传请求协议(Automatic Repeat reQuest)</h2><p>ARQ协议包括：</p>
-<ol>
+<h1 id="可靠数据传输原理">可靠数据传输原理</h1>
+<h2 id="可靠数据传输协议reliable-data-transfer-protocol-rdt1.0">可靠数据传输协议(reliable data transfer protocol) rdt1.0</h2>
+<p>直接调用udt_send函数实现</p>
+<h2 id="rdt2.0自动重传请求协议automatic-repeat-request">rdt2.0&amp;自动重传请求协议(Automatic Repeat reQuest)</h2>
+<p>ARQ协议包括：</p>
+<ol type="1">
 <li>差错检测（与UDP中通过校验码检测差错类似，详见第5章）</li>
 <li>接收方反馈（ACK与NAK）</li>
 <li>重传</li>
 </ol>
 <p><strong>停等</strong>协议：发送方只有在确信接收方已经正确接收当前分组之后才会发送一块新数据。</p>
-<h2 id="rdt2-1-amp-2-2"><a href="#rdt2-1-amp-2-2" class="headerlink" title="rdt2.1&amp;2.2"></a>rdt2.1&amp;2.2</h2><p>rdt2.0缺陷：没有考虑ACK或NAK分组受损的情况，从而发送方无法确定是发送新数据块还是重传</p>
+<h2 id="rdt2.12.2">rdt2.1&amp;2.2</h2>
+<p>rdt2.0缺陷：没有考虑ACK或NAK分组受损的情况，从而发送方无法确定是发送新数据块还是重传</p>
 <p>解决方案：为数据分组编号，当ACK或NAK分组受损时，发送方重传上一个分组，接收方也可根据编号知道发送方是否在重传前一个分组。</p>
-<h2 id="rdt3-0"><a href="#rdt3-0" class="headerlink" title="rdt3.0"></a>rdt3.0</h2><p>rdt2.2缺陷：没有考虑丢包的问题</p>
+<h2 id="rdt3.0">rdt3.0</h2>
+<p>rdt2.2缺陷：没有考虑丢包的问题</p>
 <p>解决方案：（由发送方负责检测和恢复丢包工作）实现基于时间的重传机制，加入<strong>定时器</strong></p>
-<h2 id="流水线技术-pipelining"><a href="#流水线技术-pipelining" class="headerlink" title="流水线技术(pipelining)"></a>流水线技术(pipelining)</h2><p>rdt3.0缺陷：是<strong>停等</strong>协议，性能低下</p>
+<h2 id="流水线技术pipelining">流水线技术(pipelining)</h2>
+<p>rdt3.0缺陷：是<strong>停等</strong>协议，性能低下</p>
 <p>解决方案：流水线技术</p>
 <p>影响：</p>
-<ol>
+<ol type="1">
 <li>必须增加序号范围</li>
 <li>协议发送方和接收方必须缓存多个分组</li>
 <li>具体取决于差错恢复的方式：<strong>回退N步</strong>(Go-Back-N, GBN)和<strong>选择重传</strong>(Selective repeat, SR)</li>
 </ol>
-<h2 id="回退N步-GBN"><a href="#回退N步-GBN" class="headerlink" title="回退N步(GBN)"></a>回退N步(GBN)</h2><p>发送方响应三类事件：</p>
-<ol>
+<h2 id="回退n步gbn">回退N步(GBN)</h2>
+<p>发送方响应三类事件：</p>
+<ol type="1">
 <li>上层的调用：检查发送窗口是否已满</li>
 <li>收到一个ACK：表示该序号及以前的所有分组已经被正确接收</li>
 <li>超时事件：重传所有已发送但未被确认的分组</li>
 </ol>
 <p>接收方：如果分组被正确接收并且按序，则为分组发送一个ACK，否则丢弃该分组，并为最近按序接受的分组重新发送ACK</p>
-<h2 id="选择重传-SR"><a href="#选择重传-SR" class="headerlink" title="选择重传(SR)"></a>选择重传(SR)</h2><p>发送方动作：</p>
-<ol>
+<h2 id="选择重传sr">选择重传(SR)</h2>
+<p>发送方动作：</p>
+<ol type="1">
 <li>上层的调用：检查发送窗口是否已满</li>
 <li>收到一个ACK：如果分组序号在窗口内，则将该分组标记为已接收，如果其序号等于send_base，则窗口移动到具有最小序号的未被确认分组处</li>
 <li>超时事件：重传超时的分组，每个分组都有自己的逻辑定时器</li>
 </ol>
 <p>接收方动作：</p>
-<ol>
+<ol type="1">
 <li>分组序号在窗口内，分组被正确接收并回送对应的ACK</li>
 <li>分组序号在窗口前，必须产生一个ACK</li>
 <li>其他情况：忽略分组</li>
@@ -515,34 +529,50 @@
 <p>SR接收方窗口太大困境：新分组or重传？</p>
 <p>解决方案：窗口长度必须小于或等于序号空间大小的一半</p>
 <p>可靠数据传输机制及其用途总结：p154</p>
-<h1 id="TCP-Transmission-Control-Protocol-传输控制协议"><a href="#TCP-Transmission-Control-Protocol-传输控制协议" class="headerlink" title="TCP(Transmission Control Protocol)传输控制协议"></a>TCP(Transmission Control Protocol)传输控制协议</h1><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ul>
+<h1 id="tcptransmission-control-protocol传输控制协议">TCP(Transmission Control Protocol)传输控制协议</h1>
+<h2 id="名词解释">名词解释</h2>
+<ul>
 <li>MSS(maximum segment size)：TCP的最大报文段长度</li>
 <li>MSL(maximum segment lifetime)：报文段能在网络中存在的最长时间。</li>
 <li>TTL(time to live)：IP数据报在网络中能够经历的最大跳数，即能够经过的最大路由数。</li>
 <li>RTT(round trip time)：指客户端到服务端往返所花时间。</li>
-<li>MTU(maximum transmission unit)：最大传输单元，一个链路层帧能承载的最大数据量。</li>
-</ul>
-<ul>
+<li><p>MTU(maximum transmission unit)：最大传输单元，一个链路层帧能承载的最大数据量。</p></li>
 <li>序号(Sequence number)：报文段首字节字节流编号</li>
-<li>确认号(Acknowledgement number)：期望收到的下一字节的序号</li>
+<li><p>确认号(Acknowledgement number)：期望收到的下一字节的序号</p></li>
 </ul>
-<h2 id="估计往返时间与超时"><a href="#估计往返时间与超时" class="headerlink" title="估计往返时间与超时"></a>估计往返时间与超时</h2><p>仅为已发送但是未被确认的分组测量SampleRTT<br>$$<br>EstimatedRTT=(1-\alpha)<em>EstimatedRTT + \alpha</em>SampleRTT\\<br>EstimatedRTT=0.875<em>EstimatedRTT + 0.125</em>SampleRTT<br>$$<br>RTT偏差：<br>$$<br>DevRTT=(1-\beta)<em>DevRTT + \beta</em>|SampleRTT-EstimatedRTT|\\<br>DevRTT=0.75<em>DevRTT + 0.25</em>|SampleRTT-EstimatedRTT|<br>$$<br>超时间隔，初始值为1s：<br>$$<br>TimeoutInterval=EstimatedRTT+4*DevRTT<br>$$</p>
-<h2 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h2><p>两次duplicated ACK肯定是乱序造成的</p>
+<h2 id="估计往返时间与超时">估计往返时间与超时</h2>
+<p>仅为已发送但是未被确认的分组测量SampleRTT <span class="math display">\[
+EstimatedRTT=(1-\alpha)*EstimatedRTT + \alpha*SampleRTT\\
+EstimatedRTT=0.875*EstimatedRTT + 0.125*SampleRTT
+\]</span> RTT偏差： <span class="math display">\[
+DevRTT=(1-\beta)*DevRTT + \beta*|SampleRTT-EstimatedRTT|\\
+DevRTT=0.75*DevRTT + 0.25*|SampleRTT-EstimatedRTT|
+\]</span> 超时间隔，初始值为1s： <span class="math display">\[
+TimeoutInterval=EstimatedRTT+4*DevRTT
+\]</span></p>
+<h2 id="快速重传">快速重传</h2>
+<p>两次duplicated ACK肯定是乱序造成的</p>
 <p>丢包肯定会造成三次duplicated ACK</p>
 <p>快速重传：在报文段的定时器过期之前重传丢失的报文段</p>
-<p><a href="https://www.zhihu.com/question/21789252" target="_blank" rel="noopener">https://www.zhihu.com/question/21789252</a></p>
-<h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><p>接收窗口：用于指示发送方接收方还有多少可用的缓存空间<br>$$<br>LastByteSent-LastByteAcked\le rwnd<br>$$</p>
-<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><ol>
+<p>https://www.zhihu.com/question/21789252</p>
+<h2 id="流量控制">流量控制</h2>
+<p>接收窗口：用于指示发送方接收方还有多少可用的缓存空间 <span class="math display">\[
+LastByteSent-LastByteAcked\le rwnd
+\]</span></p>
+<h2 id="三次握手">三次握手</h2>
+<ol type="1">
 <li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了<strong>LISTEN</strong>（监听）状态；</li>
 <li>TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 <strong>SYN-SENT</strong>（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。</li>
 <li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了<strong>SYN-RCVD</strong>（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。</li>
 <li>TCP客户进程收到确认后，还要向服务器给出确认。确认报文的ACK=1，ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立，客户端进入<strong>ESTABLISHED</strong>（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。</li>
 <li>当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。</li>
 </ol>
-<h3 id="为什么TCP客户端最后还要发送一次确认呢？"><a href="#为什么TCP客户端最后还要发送一次确认呢？" class="headerlink" title="为什么TCP客户端最后还要发送一次确认呢？"></a>为什么TCP客户端最后还要发送一次确认呢？</h3><blockquote>
+<h3 id="为什么tcp客户端最后还要发送一次确认呢">为什么TCP客户端最后还要发送一次确认呢？</h3>
+<blockquote>
 <p>一句话，主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误</p>
 </blockquote>
-<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><ol>
+<h2 id="四次挥手">四次挥手</h2>
+<ol type="1">
 <li>客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入<strong>FIN-WAIT-1</strong>（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。</li>
 <li>服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了<strong>CLOSE-WAIT</strong>（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。</li>
 <li>客户端收到服务器的确认请求后，此时，客户端就进入<strong>FIN-WAIT-2</strong>（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。</li>
@@ -550,54 +580,71 @@
 <li>客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了<strong>TIME-WAIT</strong>（时间等待）状态。注意此时TCP连接还没有释放，必须经过2MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。</li>
 <li>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</li>
 </ol>
-<h3 id="为什么客户端最后还要等待2MSL？"><a href="#为什么客户端最后还要等待2MSL？" class="headerlink" title="为什么客户端最后还要等待2MSL？"></a>为什么客户端最后还要等待2MSL？</h3><blockquote>
+<h3 id="为什么客户端最后还要等待2msl">为什么客户端最后还要等待2MSL？</h3>
+<blockquote>
 <p>MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。</p>
 <p>第一，保证客户端发送的最后一个ACK报文能够到达服务器</p>
 </blockquote>
-<p><a href="https://blog.csdn.net/qzcsu/article/details/72861891" target="_blank" rel="noopener">https://blog.csdn.net/qzcsu/article/details/72861891</a></p>
-<h1 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h1><h2 id="原因与代价"><a href="#原因与代价" class="headerlink" title="原因与代价"></a>原因与代价</h2><ul>
+<p>https://blog.csdn.net/qzcsu/article/details/72861891</p>
+<h1 id="拥塞控制">拥塞控制</h1>
+<h2 id="原因与代价">原因与代价</h2>
+<ul>
 <li>当分组的到达速率接近链路容量时，分组经历巨大的排队时延</li>
 <li>当数据报被丢失时发送方必须重传，因此引入了重传开销</li>
 <li>发送方在时延大时的不必要重传，浪费链路带宽</li>
 <li>当数据报被丢失时，丢失路由器的上游路由器做的工作都变成了无用功</li>
 </ul>
-<h2 id="控制方法"><a href="#控制方法" class="headerlink" title="控制方法"></a>控制方法</h2><ul>
+<h2 id="控制方法">控制方法</h2>
+<ul>
 <li>端到端的拥塞控制（通过TCP报文段丢失确定）</li>
 <li>网络辅助的拥塞控制（路由器向发送方提供拥塞状态的反馈信息）（包括直接网络反馈（发送拥塞分组）和经接收方的网络反馈（标记拥塞））</li>
 </ul>
-<h1 id="TCP拥塞控制算法"><a href="#TCP拥塞控制算法" class="headerlink" title="TCP拥塞控制算法"></a>TCP拥塞控制算法</h1><h2 id="指导性原则"><a href="#指导性原则" class="headerlink" title="指导性原则"></a>指导性原则</h2><ul>
+<h1 id="tcp拥塞控制算法">TCP拥塞控制算法</h1>
+<h2 id="指导性原则">指导性原则</h2>
+<ul>
 <li>丢失的报文段意味着拥塞，应当降低发送方速率</li>
 <li>对先前未确认的报文段的确认到达时，应当增加发送方速率</li>
 <li>带宽检测：ACK到达时增加速率，丢包时减少速率</li>
 </ul>
-<p><a href="https://blog.csdn.net/goodluckwhh/article/details/10161753" target="_blank" rel="noopener">https://blog.csdn.net/goodluckwhh/article/details/10161753</a></p>
-<h2 id="慢启动"><a href="#慢启动" class="headerlink" title="慢启动"></a>慢启动</h2><ul>
+<p>https://blog.csdn.net/goodluckwhh/article/details/10161753</p>
+<h2 id="慢启动">慢启动</h2>
+<ul>
 <li>在慢启动状态，cwnd的值以1个MSS开始，并且每当传输的报文段首次被确认就增加一个MSS</li>
 <li>如果存在一个由超时指示的丢包事件，发送方就将cwnd设置为1并重新开始慢启动，同时将ssthresh（慢启动阈值，cwnd=ssthresh时由慢启动进入拥塞避免模式）置为拥塞窗口值的一半。</li>
 <li>如果检测到3个冗余ACK，则进入快速恢复状态</li>
 </ul>
-<h2 id="拥塞避免"><a href="#拥塞避免" class="headerlink" title="拥塞避免"></a>拥塞避免</h2><p>cwnd的值大约是上次拥塞时值的一半</p>
+<h2 id="拥塞避免">拥塞避免</h2>
+<p>cwnd的值大约是上次拥塞时值的一半</p>
 <ul>
 <li>每个RTT将cwnd的值增加一个MSS（实现方式是：每受到一个<strong>新</strong>确认，就将cwnd增加一个MSS(MSS/cwnd)，这样一个RTT会接收到cwnd/MSS个确认）</li>
 <li>超时则进入慢启动状态</li>
 <li>如果检测到3个冗余ACK，则进入快速恢复状态</li>
 </ul>
-<h2 id="快速恢复"><a href="#快速恢复" class="headerlink" title="快速恢复"></a>快速恢复</h2><ul>
+<h2 id="快速恢复">快速恢复</h2>
+<ul>
 <li>收到另外的重复的ACK时，cwnd增加一个MSS。</li>
 <li>当收到确认新数据包的ACK时，把cwnd设置为ssthresh的值，转移到拥塞避免的状态</li>
 <li>超时则进入慢启动状态</li>
 </ul>
-<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p>加性增、乘性减(Additive-Increase, Multiplicative-Decrease, AIMD)</p>
+<h2 id="回顾">回顾</h2>
+<p>加性增、乘性减(Additive-Increase, Multiplicative-Decrease, AIMD)</p>
 <p>乘法减小：</p>
 <p>是指不论在慢启动阶段还是拥塞避免阶段，只要出现一次超时（即出现一次网络拥塞），就把慢启动门限值ssthresh 设置为当前的拥塞窗口值乘以0.5。当网络频繁出现拥塞时，ssthresh 值就下降得很快，以大大减少注入到网络中的分组数。</p>
 <p>加法增大：</p>
 <p>是指执行拥塞避免算法后，在收到对<strong>所有报文段的确认</strong>后（即经过一个往返时间），就把拥塞窗口cwnd增加一个MSS 大小，使拥塞窗口缓慢增大，以防止网络过早出现拥塞</p>
-<h2 id="时延计算"><a href="#时延计算" class="headerlink" title="时延计算"></a>时延计算</h2><p>首先要注意传输速率指的是将数据推向链路上的速率，而传播时延则对应为比特在链路上传播所需的时间，与物理媒体和链路长度有关，和RTT相对应</p>
+<h2 id="时延计算">时延计算</h2>
+<p>首先要注意传输速率指的是将数据推向链路上的速率，而传播时延则对应为比特在链路上传播所需的时间，与物理媒体和链路长度有关，和RTT相对应</p>
 <p>然后假设传播速率（发送速率）为R，一个分组长度为M，窗口大小为W=nM，发送数据大小为L</p>
 <p>注意到R是会直接影响到拥塞窗口的大小的，因为如果R足够大，那么一个RTT时间内可以传输无数个分组，以致于接收方不停的丢包，那么就有一个最适合当前发送速率的拥塞窗口大小</p>
-<p>假设当前处在拥塞避免阶段，每次成功接收到 $$\frac{W}{M}=n$$ 个新ACK后，窗口大小都会增加M，并逐渐趋向于在一个RTT内，发送所有的$$\frac{W}{M}$$ 个分组，也就是$$\frac{W}{RTT}\rightarrow R$$ ，此时，倘若还没有出现丢包，也就说明接收方的接受速度足够快，并且没有拥塞，那么拥塞窗口继续增大，所有的RTT时间内都会有数据进行传输，传输进入稳定状态。特别的，一个RTT里并非刚好能够传整数个分组，而只是按照流水线的方式持续不断的传输以保证没有空闲。</p>
-<p>在这种情况下，拥塞窗口大小有<br>$$<br>W \ge \lceil \frac{RTT}{M/R}\rceil + 1<br>$$<br>计算上TCP握手所需要的时间RTT，总共时延为<br>$$<br>T=2RTT+L/R<br>$$</p>
-<p><img src="D:\subject\计算机网络\复习\pic\RTT时延1.png" alt="RTT时延1"></p>
+<p>假设当前处在拥塞避免阶段，每次成功接收到 <span class="math display">\[\frac{W}{M}=n\]</span> 个新ACK后，窗口大小都会增加M，并逐渐趋向于在一个RTT内，发送所有的<span class="math display">\[\frac{W}{M}\]</span> 个分组，也就是<span class="math display">\[\frac{W}{RTT}\rightarrow R\]</span> ，此时，倘若还没有出现丢包，也就说明接收方的接受速度足够快，并且没有拥塞，那么拥塞窗口继续增大，所有的RTT时间内都会有数据进行传输，传输进入稳定状态。特别的，一个RTT里并非刚好能够传整数个分组，而只是按照流水线的方式持续不断的传输以保证没有空闲。</p>
+<p>在这种情况下，拥塞窗口大小有 <span class="math display">\[
+W \ge \lceil \frac{RTT}{M/R}\rceil + 1
+\]</span> 计算上TCP握手所需要的时间RTT，总共时延为 <span class="math display">\[
+T=2RTT+L/R
+\]</span></p>
+<figure>
+<img src="D:\subject\计算机网络\复习\pic\RTT时延1.png" alt="RTT时延1"><figcaption>RTT时延1</figcaption>
+</figure>
 
       
     </div>
@@ -794,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多路复用与多路分解"><span class="nav-number">2.</span> <span class="nav-text">多路复用与多路分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多路分解"><span class="nav-number">2.1.</span> <span class="nav-text">多路分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用"><span class="nav-number">2.2.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无连接与面向连接的"><span class="nav-number">2.3.</span> <span class="nav-text">无连接与面向连接的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UDP-User-Datagram-Protocol-用户数据报协议"><span class="nav-number">3.</span> <span class="nav-text">UDP(User Datagram Protocol)用户数据报协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可靠数据传输原理"><span class="nav-number">4.</span> <span class="nav-text">可靠数据传输原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输协议-reliable-data-transfer-protocol-rdt1-0"><span class="nav-number">4.1.</span> <span class="nav-text">可靠数据传输协议(reliable data transfer protocol) rdt1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt2-0-amp-自动重传请求协议-Automatic-Repeat-reQuest"><span class="nav-number">4.2.</span> <span class="nav-text">rdt2.0&amp;自动重传请求协议(Automatic Repeat reQuest)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt2-1-amp-2-2"><span class="nav-number">4.3.</span> <span class="nav-text">rdt2.1&amp;2.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt3-0"><span class="nav-number">4.4.</span> <span class="nav-text">rdt3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流水线技术-pipelining"><span class="nav-number">4.5.</span> <span class="nav-text">流水线技术(pipelining)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回退N步-GBN"><span class="nav-number">4.6.</span> <span class="nav-text">回退N步(GBN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择重传-SR"><span class="nav-number">4.7.</span> <span class="nav-text">选择重传(SR)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP-Transmission-Control-Protocol-传输控制协议"><span class="nav-number">5.</span> <span class="nav-text">TCP(Transmission Control Protocol)传输控制协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-number">5.1.</span> <span class="nav-text">名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#估计往返时间与超时"><span class="nav-number">5.2.</span> <span class="nav-text">估计往返时间与超时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速重传"><span class="nav-number">5.3.</span> <span class="nav-text">快速重传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流量控制"><span class="nav-number">5.4.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手"><span class="nav-number">5.5.</span> <span class="nav-text">三次握手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么TCP客户端最后还要发送一次确认呢？"><span class="nav-number">5.5.1.</span> <span class="nav-text">为什么TCP客户端最后还要发送一次确认呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次挥手"><span class="nav-number">5.6.</span> <span class="nav-text">四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么客户端最后还要等待2MSL？"><span class="nav-number">5.6.1.</span> <span class="nav-text">为什么客户端最后还要等待2MSL？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拥塞控制"><span class="nav-number">6.</span> <span class="nav-text">拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因与代价"><span class="nav-number">6.1.</span> <span class="nav-text">原因与代价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制方法"><span class="nav-number">6.2.</span> <span class="nav-text">控制方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP拥塞控制算法"><span class="nav-number">7.</span> <span class="nav-text">TCP拥塞控制算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指导性原则"><span class="nav-number">7.1.</span> <span class="nav-text">指导性原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#慢启动"><span class="nav-number">7.2.</span> <span class="nav-text">慢启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拥塞避免"><span class="nav-number">7.3.</span> <span class="nav-text">拥塞避免</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速恢复"><span class="nav-number">7.4.</span> <span class="nav-text">快速恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾"><span class="nav-number">7.5.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时延计算"><span class="nav-number">7.6.</span> <span class="nav-text">时延计算</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多路复用与多路分解"><span class="nav-number">2.</span> <span class="nav-text">多路复用与多路分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多路分解"><span class="nav-number">2.1.</span> <span class="nav-text">多路分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多路复用"><span class="nav-number">2.2.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无连接与面向连接的"><span class="nav-number">2.3.</span> <span class="nav-text">无连接与面向连接的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#udpuser-datagram-protocol用户数据报协议"><span class="nav-number">3.</span> <span class="nav-text">UDP(User Datagram Protocol)用户数据报协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可靠数据传输原理"><span class="nav-number">4.</span> <span class="nav-text">可靠数据传输原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可靠数据传输协议reliable-data-transfer-protocol-rdt1.0"><span class="nav-number">4.1.</span> <span class="nav-text">可靠数据传输协议(reliable data transfer protocol) rdt1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt2.0自动重传请求协议automatic-repeat-request"><span class="nav-number">4.2.</span> <span class="nav-text">rdt2.0&amp;自动重传请求协议(Automatic Repeat reQuest)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt2.12.2"><span class="nav-number">4.3.</span> <span class="nav-text">rdt2.1&amp;2.2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rdt3.0"><span class="nav-number">4.4.</span> <span class="nav-text">rdt3.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流水线技术pipelining"><span class="nav-number">4.5.</span> <span class="nav-text">流水线技术(pipelining)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回退n步gbn"><span class="nav-number">4.6.</span> <span class="nav-text">回退N步(GBN)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择重传sr"><span class="nav-number">4.7.</span> <span class="nav-text">选择重传(SR)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tcptransmission-control-protocol传输控制协议"><span class="nav-number">5.</span> <span class="nav-text">TCP(Transmission Control Protocol)传输控制协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释"><span class="nav-number">5.1.</span> <span class="nav-text">名词解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#估计往返时间与超时"><span class="nav-number">5.2.</span> <span class="nav-text">估计往返时间与超时</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速重传"><span class="nav-number">5.3.</span> <span class="nav-text">快速重传</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流量控制"><span class="nav-number">5.4.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手"><span class="nav-number">5.5.</span> <span class="nav-text">三次握手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么tcp客户端最后还要发送一次确认呢"><span class="nav-number">5.5.1.</span> <span class="nav-text">为什么TCP客户端最后还要发送一次确认呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次挥手"><span class="nav-number">5.6.</span> <span class="nav-text">四次挥手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么客户端最后还要等待2msl"><span class="nav-number">5.6.1.</span> <span class="nav-text">为什么客户端最后还要等待2MSL？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拥塞控制"><span class="nav-number">6.</span> <span class="nav-text">拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因与代价"><span class="nav-number">6.1.</span> <span class="nav-text">原因与代价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制方法"><span class="nav-number">6.2.</span> <span class="nav-text">控制方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tcp拥塞控制算法"><span class="nav-number">7.</span> <span class="nav-text">TCP拥塞控制算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#指导性原则"><span class="nav-number">7.1.</span> <span class="nav-text">指导性原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#慢启动"><span class="nav-number">7.2.</span> <span class="nav-text">慢启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拥塞避免"><span class="nav-number">7.3.</span> <span class="nav-text">拥塞避免</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速恢复"><span class="nav-number">7.4.</span> <span class="nav-text">快速恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾"><span class="nav-number">7.5.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时延计算"><span class="nav-number">7.6.</span> <span class="nav-text">时延计算</span></a></li></ol></li></ol></div>
             
 
           </div>

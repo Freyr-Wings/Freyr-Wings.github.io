@@ -454,32 +454,45 @@
       
         <p>本文为对Andrew Ng的推荐系统与协同过滤一章的个人理解。</p>
 <a id="more"></a>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><a href="https://www.ibm.com/developerworks/cn/web/1103_zhaoct_recommstudy1/index.html#icomments" target="_blank" rel="noopener">根据不同的数据源发现数据相关性的方法可以分为以下几种</a>：</p>
+<h2 id="定义">定义</h2>
+<p><a href="https://www.ibm.com/developerworks/cn/web/1103_zhaoct_recommstudy1/index.html#icomments" target="_blank" rel="noopener">根据不同的数据源发现数据相关性的方法可以分为以下几种</a>：</p>
 <ul>
 <li>根据系统用户的基本信息发现用户的相关程度，这种被称为基于人口统计学的推荐（Demographic-based Recommendation）</li>
 <li>根据推荐物品或内容的元数据，发现物品或者内容的相关性，这种被称为基于内容的推荐（Content-based Recommendation）</li>
 <li>根据用户对物品或者信息的偏好，发现物品或者内容本身的相关性，或者是发现用户的相关性，这种被称为基于协同过滤的推荐（Collaborative Filtering-based Recommendation）。</li>
 </ul>
 <p>本文中主要涉及的为基于内容的推荐和基于协同过滤的推荐。</p>
-<h2 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h2><p>$n_{user}$代表用户的数量</p>
-<p>$n_{movie}$代表电影的数量</p>
-<p>$r^{(i, j)}$代表用户<code>i</code>给电影<code>j</code>评过分</p>
-<p>$y^{(i, j)}$代表用户<code>i</code>给电影<code>j</code> 的评分</p>
-<p>$\hat{y}^{(i, j)}$代表系统预测的用户<code>i</code>给电影<code>j</code> 的评分</p>
-<p>$m_j$代表用户<code>j</code> 评过分的电影的总数</p>
-<h2 id="基于内容的推荐系统"><a href="#基于内容的推荐系统" class="headerlink" title="基于内容的推荐系统"></a>基于内容的推荐系统</h2><p>假设每部电影都有一个特征向量$\bf{x}^i$</p>
-<p>假设每个用户心中有一个用于打分的参数向量$\bf{\theta}^j$</p>
-<p>则对预测评分$\hat{y}^{(i, j)}$有：<br>$$<br>\hat{y}^{(i, j)}=(\bf{\theta}^j)^T\bf{x}^i\\<br>$$<br>对代价函数$L(\bf{\theta})$有：<br>$$<br>L(\bf{\theta}^j)=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}||\bf{\theta}^j||_2^2\\<br>$$</p>
-<p>$$<br>L(\bf{\theta})=\sum\limits_{j=1}^{n_{user}}L(\bf{\theta}^j)<br>$$</p>
-<p>最后通过梯度下降法得到$\bf{\theta}$的最优解</p>
-<h3 id="个人体会"><a href="#个人体会" class="headerlink" title="个人体会"></a>个人体会</h3><ol>
+<h2 id="标记">标记</h2>
+<p><span class="math inline">\(n_{user}\)</span>代表用户的数量</p>
+<p><span class="math inline">\(n_{movie}\)</span>代表电影的数量</p>
+<p><span class="math inline">\(r^{(i, j)}\)</span>代表用户<code>i</code>给电影<code>j</code>评过分</p>
+<p><span class="math inline">\(y^{(i, j)}\)</span>代表用户<code>i</code>给电影<code>j</code> 的评分</p>
+<p><span class="math inline">\(\hat{y}^{(i, j)}\)</span>代表系统预测的用户<code>i</code>给电影<code>j</code> 的评分</p>
+<p><span class="math inline">\(m_j\)</span>代表用户<code>j</code> 评过分的电影的总数</p>
+<h2 id="基于内容的推荐系统">基于内容的推荐系统</h2>
+<p>假设每部电影都有一个特征向量<span class="math inline">\(\bf{x}^i\)</span></p>
+<p>假设每个用户心中有一个用于打分的参数向量<span class="math inline">\(\bf{\theta}^j\)</span></p>
+<p>则对预测评分<span class="math inline">\(\hat{y}^{(i, j)}\)</span>有： <span class="math display">\[
+\hat{y}^{(i, j)}=(\bf{\theta}^j)^T\bf{x}^i\\
+\]</span> 对代价函数<span class="math inline">\(L(\bf{\theta})\)</span>有： <span class="math display">\[
+L(\bf{\theta}^j)=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}||\bf{\theta}^j||_2^2\\
+\]</span></p>
+<p><span class="math display">\[
+L(\bf{\theta})=\sum\limits_{j=1}^{n_{user}}L(\bf{\theta}^j)
+\]</span></p>
+<p>最后通过梯度下降法得到<span class="math inline">\(\bf{\theta}\)</span>的最优解</p>
+<h3 id="个人体会">个人体会</h3>
+<ol type="1">
 <li>在这个系统中首先需要给出每部电影的特征，以及部分用户对电影的打分</li>
-<li>一方面，可以利用用户的$\theta$来评估未打分的电影的$\hat{y}$，从而将预测打分比较高的推荐给用户</li>
-<li>另一方面，可以通过相似性比较找到$\theta$相近的用户，互相为他们推荐电影</li>
+<li>一方面，可以利用用户的<span class="math inline">\(\theta\)</span>来评估未打分的电影的<span class="math inline">\(\hat{y}\)</span>，从而将预测打分比较高的推荐给用户</li>
+<li>另一方面，可以通过相似性比较找到<span class="math inline">\(\theta\)</span>相近的用户，互相为他们推荐电影</li>
 </ol>
-<h2 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h2><p>在之前的基于内容的推荐系统中，对于每一部电影，我们都掌握了可用的特征，使用这些特征训练出了每一个用户的参数。相反地，如果我们拥有用户的参数，我们可以学习得出电影的特征。</p>
-<p>但如果我们既没有用户的参数，也没有电影的特征，这两种方法都不可行了。协同过滤算法可以同时学习这两者。此时的优化目标便改为同时针对$\bf{x}$和$\bf{\theta}​$进行。</p>
-<p>此时损失函数为：<br>$$<br>L(\bf{\theta}, \bf{x})=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}\sum\limits_{j=1}^{n_{user}}||\bf{\theta}^j||_2^2+\frac{\lambda}{2}\sum\limits_{i=1}^{n_{movie}}||\bf{x}^i||_2^2<br>$$<br>同时通过梯度下降法对$\bf{x}$和$\bf{\theta}$更新，即可得到所有的特征，并利用这些特征为用户提供推荐。</p>
+<h2 id="协同过滤">协同过滤</h2>
+<p>在之前的基于内容的推荐系统中，对于每一部电影，我们都掌握了可用的特征，使用这些特征训练出了每一个用户的参数。相反地，如果我们拥有用户的参数，我们可以学习得出电影的特征。</p>
+<p>但如果我们既没有用户的参数，也没有电影的特征，这两种方法都不可行了。协同过滤算法可以同时学习这两者。此时的优化目标便改为同时针对<span class="math inline">\(\bf{x}\)</span>和<span class="math inline">\(\bf{\theta}​\)</span>进行。</p>
+<p>此时损失函数为： <span class="math display">\[
+L(\bf{\theta}, \bf{x})=\frac{1}{2}\sum\limits_{i:r^{(i, j)}=1}^{} (\hat{y}^{(i, j)}-y^{(i, j)})^2+\frac{\lambda}{2}\sum\limits_{j=1}^{n_{user}}||\bf{\theta}^j||_2^2+\frac{\lambda}{2}\sum\limits_{i=1}^{n_{movie}}||\bf{x}^i||_2^2
+\]</span> 同时通过梯度下降法对<span class="math inline">\(\bf{x}\)</span>和<span class="math inline">\(\bf{\theta}\)</span>更新，即可得到所有的特征，并利用这些特征为用户提供推荐。</p>
 <p>在协同过滤方法中，我们很显然的会发现，基于协同过滤的推荐系统用可以分为两类：</p>
 <ul>
 <li>基于项(item-based)的推荐系统。主要依据的是项与项之间的相似性。</li>
