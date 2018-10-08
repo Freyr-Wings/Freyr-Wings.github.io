@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Network Embedding," />
 
 
 
@@ -95,6 +95,7 @@
 
 
 <meta name="description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
+<meta name="keywords" content="Network Embedding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="图与节点的表达学习">
 <meta property="og:url" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/index.html">
@@ -103,7 +104,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/sdne-model.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/node2vec2.png">
-<meta property="og:updated_time" content="2018-10-08T16:13:01.473Z">
+<meta property="og:updated_time" content="2018-10-08T16:19:12.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图与节点的表达学习">
 <meta name="twitter:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
@@ -360,6 +361,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -505,7 +528,7 @@ f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\
 \therefore LY=-DY\Lambda=\lambda DY\\
 \therefore min(J)\Leftrightarrow min(tr(\lambda))</script><p>特别的注意到</p>
 <script type="math/tex; mode=display">
-D\cdot \bold{1}=W\cdot \bold{1}</script><p>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
+D\cdot \bold\{1\}=W\cdot \bold\{1\}</script><p>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
 <h1 id="SDNE"><a href="#SDNE" class="headerlink" title="SDNE"></a>SDNE</h1><p>SDNE是一个半监督的神经网络模型，由两部分组成</p>
 <img src="/2018/10/09/图与节点的表达学习/sdne-model.png" title="sdne-model">
 <p>论文中指出下面两个定义：</p>
@@ -671,6 +694,12 @@ P(c_i=x|c_{i-1}=v)=
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Network-Embedding/" rel="tag"># Network Embedding</a>
+          
+        </div>
+      
 
       
       
@@ -789,7 +818,7 @@ P(c_i=x|c_{i-1}=v)=
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
