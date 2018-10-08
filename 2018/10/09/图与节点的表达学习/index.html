@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/sdne-model.png">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/deepwalk.jpg">
 <meta property="og:image" content="https://freyr-wings.github.io/2018/10/09/图与节点的表达学习/node2vec2.png">
-<meta property="og:updated_time" content="2018-10-08T17:34:21.722Z">
+<meta property="og:updated_time" content="2018-10-08T17:35:30.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图与节点的表达学习">
 <meta name="twitter:description" content="本博客是对一个图与表达学习库中涉及的模型进行讲解 表达学习库的地址为：https://github.com/thunlp/OpenNE">
@@ -583,9 +583,9 @@ B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta>1</script><p>特别的，在�
 <li>随机游走得到节点序列</li>
 <li>利用skip gram模型得到表达</li>
 </ol>
-<img src="/2018/10/09/图与节点的表达学习/deepwalk.jpg" class="text-center" title="deepwalk">
+<img src="/2018/10/09/图与节点的表达学习/deepwalk.jpg" title="deepwalk">
 <p>node2vec唯一的区别是在随机游走的过程中加入了两个参数，分别用于控制得到局部信息和整体信息</p>
-<img src="/2018/10/09/图与节点的表达学习/node2vec2.png" class="text-center" title="node2vec2">
+<img src="/2018/10/09/图与节点的表达学习/node2vec2.png" title="node2vec2">
 <p>其中随机游走的转移概率（从点$v$到点$c$）定义如下：</p>
 <script type="math/tex; mode=display">
 P(c_i=x|c_{i-1}=v)=
