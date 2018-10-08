@@ -468,7 +468,6 @@
 </ol>
 <h2 id="数据报网络-datagram-network"><a href="#数据报网络-datagram-network" class="headerlink" title="数据报网络(datagram network)"></a>数据报网络(datagram network)</h2><p>仅在网络层提供无连接服务的计算机网络</p>
 <p>每台路由器有一个将目的地址映射到链路接口的转发表。根据<strong>最长前缀匹配规则</strong>进行转发</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -495,9 +494,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h1 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h1><h2 id="输入端口"><a href="#输入端口" class="headerlink" title="输入端口"></a>输入端口</h2><div class="table-container">
-<table>
+<h1 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h1><h2 id="输入端口"><a href="#输入端口" class="headerlink" title="输入端口"></a>输入端口</h2><table>
 <thead>
 <tr>
 <th>线路端接</th>
@@ -513,15 +510,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p>对于双向链路，其输入和输出端口在同一线路卡上成对出现</p>
 <h2 id="交换结构"><a href="#交换结构" class="headerlink" title="交换结构"></a>交换结构</h2><ol>
 <li>经内存交换</li>
 <li>经总线交换</li>
 <li>经纵横式网络交换</li>
 </ol>
-<h2 id="输出端口"><a href="#输出端口" class="headerlink" title="输出端口"></a>输出端口</h2><div class="table-container">
-<table>
+<h2 id="输出端口"><a href="#输出端口" class="headerlink" title="输出端口"></a>输出端口</h2><table>
 <thead>
 <tr>
 <th>排队</th>
@@ -537,7 +532,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="输出端口排队"><a href="#输出端口排队" class="headerlink" title="输出端口排队"></a>输出端口排队</h2><h3 id="分组调度程序-packet-scheduler"><a href="#分组调度程序-packet-scheduler" class="headerlink" title="分组调度程序(packet scheduler)"></a>分组调度程序(packet scheduler)</h3><p>用于在排队的分组中选择一个来发送</p>
 <p>例如：先来先服务调度(FCFS)，加权公平排队(WFQ)</p>
 <h3 id="主动队列管理-Active-Queue-Management-AQM"><a href="#主动队列管理-Active-Queue-Management-AQM" class="headerlink" title="主动队列管理(Active Queue Management, AQM)"></a>主动队列管理(Active Queue Management, AQM)</h3><p><strong>丢包</strong>：路由器缓存空间耗尽，无内存可用于存储到达的分组，造成分组被丢弃</p>
@@ -556,7 +550,6 @@
 <li>流标签和优先级</li>
 </ul>
 <h1 id="路由选择算法"><a href="#路由选择算法" class="headerlink" title="路由选择算法"></a>路由选择算法</h1><h2 id="链路状态-Link-State-LS-路由选择算法"><a href="#链路状态-Link-State-LS-路由选择算法" class="headerlink" title="链路状态(Link State, LS)路由选择算法"></a>链路状态(Link State, LS)路由选择算法</h2><p>p283-26</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -643,9 +636,7 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h2 id="距离向量-Distance-Vector-DV-路由选择算法"><a href="#距离向量-Distance-Vector-DV-路由选择算法" class="headerlink" title="距离向量(Distance-Vector, DV)路由选择算法"></a>距离向量(Distance-Vector, DV)路由选择算法</h2><p>p284-29</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -684,8 +675,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -724,8 +713,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -764,8 +751,6 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -804,7 +789,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <h1 id="AS-Autonomous-System-内部路由选择协议（内部网关协议）"><a href="#AS-Autonomous-System-内部路由选择协议（内部网关协议）" class="headerlink" title="AS(Autonomous System)内部路由选择协议（内部网关协议）"></a>AS(Autonomous System)内部路由选择协议（内部网关协议）</h1><h2 id="路由选择信息协议-Routing-Information-Protocol-RIP"><a href="#路由选择信息协议-Routing-Information-Protocol-RIP" class="headerlink" title="路由选择信息协议(Routing Information Protocol, RIP)"></a>路由选择信息协议(Routing Information Protocol, RIP)</h2><ol>
 <li>RIP是一种距离向量协议</li>
 <li><strong>跳</strong>：从源路由器到目的子网（包括目的子网！）的最短路径所经过的子网数量</li>

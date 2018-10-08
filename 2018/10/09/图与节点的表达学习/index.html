@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  1,118 字
+                  1,506 字
                 </span>
               
 
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">阅读时长≈</span>
                 
                 <span title="阅读时长≈">
-                  4分钟
+                  6分钟
                 </span>
               
             </div>
@@ -466,11 +466,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node feature_1 feature_2 ... feature_n</span><br></pre></td></tr></table></figure>
 <h1 id="我们希望得到的"><a href="#我们希望得到的" class="headerlink" title="我们希望得到的"></a>我们希望得到的</h1><h2 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">num_of_nodes num_of_dims_of_representation</span><br><span class="line">node_id dim1 dim2 ... dimd</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <h2 id="模型输出"><a href="#模型输出" class="headerlink" title="模型输出"></a>模型输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model = Node2vec(graph=g, path_length=<span class="number">80</span>,</span><br><span class="line">                 num_paths=<span class="number">10</span>, dim=<span class="number">128</span>,</span><br><span class="line">                 p=<span class="number">1.</span>, q=<span class="number">1.</span>, window=<span class="number">10</span>)</span><br><span class="line">vectors = model.vectors</span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">&#123;<span class="string">'1248'</span>: array([ <span class="number">9.77877006e-02</span>, ...]),</span><br><span class="line"> <span class="string">'601'</span>: array([<span class="number">-0.24153167</span>, ...]), ...&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h1><script type="math/tex; mode=display">
-Macro-F1=\frac{\sum_{A\in \mathcal{C}}F1(A)}{|\mathcal{C}|}</script><script type="math/tex; mode=display">
-Pr=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FP(A))},R=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FN(A))}\\
-Micro-F1=\frac{2*Pr*R}{Pr+R}</script><h1 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h1><div class="table-container">
-<table>
+<h1 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h1><p>$$<br>Macro-F1=\frac{\sum_{A\in \mathcal{C}}F1(A)}{|\mathcal{C}|}<br>$$</p>
+<p>$$<br>Pr=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FP(A))},R=\frac{\sum_{A\in \mathcal{C}}TP(A)}{\sum_{A\in \mathcal{C}}(TP(A)+FN(A))}\\<br>Micro-F1=\frac{2<em>Pr</em>R}{Pr+R}<br>$$</p>
+<h1 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h1><table>
 <thead>
 <tr>
 <th>符号</th>
@@ -479,12 +477,12 @@ Micro-F1=\frac{2*Pr*R}{Pr+R}</script><h1 id="Notation"><a href="#Notation" class
 </thead>
 <tbody>
 <tr>
-<td><script type="math/tex">W</script></td>
-<td>图的邻接矩阵，<script type="math/tex">\vert V \vert \times \vert V \vert</script></td>
+<td>$$W$$</td>
+<td>图的邻接矩阵，$$\vert V \vert \times \vert V \vert$$</td>
 </tr>
 <tr>
-<td><script type="math/tex">Y</script></td>
-<td>图的嵌入表达，<script type="math/tex">\vert V \vert \times d</script></td>
+<td>$$Y$$</td>
+<td>图的嵌入表达，$$\vert V \vert \times d$$</td>
 </tr>
 <tr>
 <td>d</td>
@@ -492,12 +490,8 @@ Micro-F1=\frac{2*Pr*R}{Pr+R}</script><h1 id="Notation"><a href="#Notation" class
 </tr>
 </tbody>
 </table>
-</div>
-<h1 id="Graph-Factorization"><a href="#Graph-Factorization" class="headerlink" title="Graph Factorization"></a>Graph Factorization</h1><p>GF的损失函数表达如下：</p>
-<script type="math/tex; mode=display">
-J=\sum_{(i,j)\in E}(W_{ij}-Y_i{Y_j}^T)^2+\lambda\sum_{i}\|Y_i\|^2</script><p>通过梯度下降调整嵌入表达矩阵。GF认为邻接矩阵上两点对应的值应与两点的表达向量的内积相近，同时对表达向量进行了L2正则化。</p>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><div class="table-container">
-<table>
+<h1 id="Graph-Factorization"><a href="#Graph-Factorization" class="headerlink" title="Graph Factorization"></a>Graph Factorization</h1><p>GF的损失函数表达如下：<br>$$<br>J=\sum_{(i,j)\in E}(W_{ij}-Y_i{Y_j}^T)^2+\lambda\sum_{i}|Y_i|^2<br>$$<br>通过梯度下降调整嵌入表达矩阵。GF认为邻接矩阵上两点对应的值应与两点的表达向量的内积相近，同时对表达向量进行了L2正则化。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -511,24 +505,9 @@ J=\sum_{(i,j)\in E}(W_{ij}-Y_i{Y_j}^T)^2+\lambda\sum_{i}\|Y_i\|^2</script><p>通
 </tr>
 </tbody>
 </table>
-</div>
 <h1 id="Laplacian-Eigenmaps"><a href="#Laplacian-Eigenmaps" class="headerlink" title="Laplacian Eigenmaps"></a>Laplacian Eigenmaps</h1><p><strong>注意，这个方法仅用于无向图</strong></p>
-<p>这里额外用到度矩阵$D$和拉普拉斯矩阵$L$</p>
-<script type="math/tex; mode=display">
-D=diag(d_1, d_2, ...)\\
-d_i=\sum_jW_{ij}\\
-L=D-W</script><p>LE的优化函数表达如下：</p>
-<script type="math/tex; mode=display">
-J=\sum_{i,j}\| Y_i-Y_j\|_2^2W_{ij}=tr(Y^TLY)\\
-s.t. Y^TDY=I</script><p>其中的限制条件是为了防止嵌入表达矩阵任意放缩</p>
-<p>利用拉格朗日乘子法对目标函数求解</p>
-<script type="math/tex; mode=display">
-f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\
-\frac{\partial f(Y)}{\partial Y}=2LY+2DY\Lambda=0\\
-\therefore LY=-DY\Lambda=\lambda DY\\
-\therefore min(J)\Leftrightarrow min(tr(\lambda))</script><p>特别的注意到</p>
-<script type="math/tex; mode=display">
-D\cdot \bf{1}= W\cdot \bf{1}</script><p>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
+<p>这里额外用到度矩阵$D$和拉普拉斯矩阵$L$<br>$$<br>D=diag(d_1, d_2, …)\\<br>d_i=\sum_jW_{ij}\\<br>L=D-W<br>$$<br>LE的优化函数表达如下：<br>$$<br>J=\sum_{i,j}| Y_i-Y_j|_2^2W_{ij}=tr(Y^TLY)\\<br>s.t. Y^TDY=I<br>$$<br>其中的限制条件是为了防止嵌入表达矩阵任意放缩</p>
+<p>利用拉格朗日乘子法对目标函数求解<br>$$<br>f(Y)=tr(Y^TLY)+tr(\Lambda (Y^TDY-I))\\<br>\frac{\partial f(Y)}{\partial Y}=2LY+2DY\Lambda=0\\<br>\therefore LY=-DY\Lambda=\lambda DY\\<br>\therefore min(J)\Leftrightarrow min(tr(\lambda))<br>$$<br>特别的注意到<br>$$<br>D\cdot \bf{1}= W\cdot \bf{1}<br>$$<br>所以目标函数有平凡解，对应特征向量为$\bold{1}$，对应特征值为0，为了使目标函数最小而避免平凡解，故而选择特征值大于0的最小的特征值作为$\lambda$，取对应的特征向量作为最后的表达矩阵</p>
 <h1 id="SDNE"><a href="#SDNE" class="headerlink" title="SDNE"></a>SDNE</h1><p>SDNE是一个半监督的神经网络模型，由两部分组成</p>
 <img src="/2018/10/09/图与节点的表达学习/sdne-model.png" title="sdne-model">
 <p>论文中指出下面两个定义：</p>
@@ -536,16 +515,9 @@ D\cdot \bf{1}= W\cdot \bf{1}</script><p>所以目标函数有平凡解，对应�
 <li>一阶近似：对于两个点而言，其邻接矩阵上对应的值为一阶近似值</li>
 <li>二阶近似：即$W_i$与$W_j$之间的相似性</li>
 </ul>
-<p>其损失函数表达如下，</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_{1st}=\sum_{i,j}W_{ij}\| Y_i-Y_j\|_2^2\\
-\mathcal{L}_{2nd}=\sum_i\|(\hat{Y}_i-Y_i)\odot B_i \|_2^2\\
-B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta>1</script><p>特别的，在考虑$\mathcal{L}_{2nd}$的时候提到，可以想到两点之间没有连接，也就是邻接矩阵上值为0，未必就意味着两点之间没有联系，同时对于邻接矩阵为稀疏矩阵的情况下，Autoencoder更倾向于构建零矩阵，因此加入矩阵$B$</p>
-<p>最后，总的损失函数表达如下：</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_{mix}=\mathcal{L}_{2nd}+\alpha\mathcal{L}_{1st}+\nu\mathcal{L}_{reg}</script><p>其中最后一项为对神经网络的L2正则化</p>
-<h2 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h2><div class="table-container">
-<table>
+<p>其损失函数表达如下，<br>$$<br>\mathcal{L}_{1st}=\sum_{i,j}W_{ij}| Y_i-Y_j|_2^2\\<br>\mathcal{L}_{2nd}=\sum_i|(\hat{Y}_i-Y_i)\odot B_i |_2^2\\<br>B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta&gt;1<br>$$<br>特别的，在考虑$\mathcal{L}_{2nd}$的时候提到，可以想到两点之间没有连接，也就是邻接矩阵上值为0，未必就意味着两点之间没有联系，同时对于邻接矩阵为稀疏矩阵的情况下，Autoencoder更倾向于构建零矩阵，因此加入矩阵$B$</p>
+<p>最后，总的损失函数表达如下：<br>$$<br>\mathcal{L}_{mix}=\mathcal{L}_{2nd}+\alpha\mathcal{L}_{1st}+\nu\mathcal{L}_{reg}<br>$$<br>其中最后一项为对神经网络的L2正则化</p>
+<h2 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h2><table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -575,7 +547,6 @@ B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta>1</script><p>特别的，在�
 </tr>
 </tbody>
 </table>
-</div>
 <h1 id="DeepWalk-amp-Node2vec"><a href="#DeepWalk-amp-Node2vec" class="headerlink" title="DeepWalk &amp; Node2vec"></a>DeepWalk &amp; Node2vec</h1><p>deepwalk的步骤如下：</p>
 <ol>
 <li>图</li>
@@ -585,23 +556,8 @@ B=(W_{ij}\neq0)\times\beta+(W_{ij}=0)\times1,\beta>1</script><p>特别的，在�
 
 <p>node2vec唯一的区别是在随机游走的过程中加入了两个参数，分别用于控制得到局部信息和整体信息</p>
 <img src="/2018/10/09/图与节点的表达学习/node2vec2.png" title="node2vec2">
-<p>其中随机游走的转移概率（从点$v$到点$c$）定义如下：</p>
-<script type="math/tex; mode=display">
-P(c_i=x|c_{i-1}=v)=
-\begin{cases}
-\frac{\pi_{vx}}{Z}& \text{if } (v,x)\in E\\
-0& \text{otherwise}
-\end{cases}</script><p>其中$Z$为归一化常数</p>
-<script type="math/tex; mode=display">
-\pi_{vx}=\alpha_{pq}(t,x)\cdot W_{vx}\\
-\alpha_{pq}(t,x)=
-\begin{cases}
-\frac{1}{p}& \text{if } d_{tx}=0\\
-1& \text{if } d_{tx}=1\\
-\frac{1}{q}& \text{if } d_{tx}=2\\
-\end{cases},其中d为t与x之间的边数</script><p>此外node2vec论文中还提到一些边预测和边采样的方式，详见论文。</p>
-<h2 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h2><div class="table-container">
-<table>
+<p>其中随机游走的转移概率（从点$v$到点$c$）定义如下：<br>$$<br>P(c_i=x|c_{i-1}=v)=<br>\begin{cases}<br>\frac{\pi_{vx}}{Z}&amp; \text{if } (v,x)\in E\\<br>0&amp; \text{otherwise}<br>\end{cases}<br>$$<br>其中$Z$为归一化常数<br>$$<br>\pi_{vx}=\alpha_{pq}(t,x)\cdot W_{vx}\\<br>\alpha_{pq}(t,x)=<br>\begin{cases}<br>\frac{1}{p}&amp; \text{if } d_{tx}=0\\<br>1&amp; \text{if } d_{tx}=1\\<br>\frac{1}{q}&amp; \text{if } d_{tx}=2\\<br>\end{cases},其中d为t与x之间的边数<br>$$<br>此外node2vec论文中还提到一些边预测和边采样的方式，详见论文。</p>
+<h2 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h2><table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -631,18 +587,8 @@ P(c_i=x|c_{i-1}=v)=
 </tr>
 </tbody>
 </table>
-</div>
-<h1 id="LINE"><a href="#LINE" class="headerlink" title="LINE"></a>LINE</h1><p>同样的，LINE也考虑了一阶近似和二阶近似，在一阶近似中，以预测概率和经验概率的KL散度作为损失函数</p>
-<script type="math/tex; mode=display">
-预测概率p_{1ij}=\frac{1}{1+exp(-Y_i{Y_j}^T)}\\
-经验概率\hat{p}_{2ij}=\frac{W_{ij}}{\sum_{(i,j)\in E} W_{ij}}\\
-\mathcal{L}_{1st}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{1ij}\\</script><p>在计算二阶近似时，LINE认为每个点应当有两个表达，一个是表达点本身，即$Y$，另一个则是作为其他点的特定context存在，这里记作$Y’$，两者都是待学习的参数，具体损失函数如下：</p>
-<script type="math/tex; mode=display">
-预测概率p_{2}(v_j|v_i)=\frac{\text{exp}(Y_i{Y_j}'^T)}{\sum_{k=1}^{|V|}\text{exp}(Y_i{Y_k}'^T))}\\
-经验概率\hat{p}_{2}(v_j|v_i)=\frac{W_{ij}}{d_i},d_i为点i的出度\\
-\mathcal{L}_{2nd}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{2}(v_j|v_i)\\</script><p>与node2vec类似，这里边采样也采用alias sample进行加速，并采用负采样加速训练效果</p>
-<h2 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h2><div class="table-container">
-<table>
+<h1 id="LINE"><a href="#LINE" class="headerlink" title="LINE"></a>LINE</h1><p>同样的，LINE也考虑了一阶近似和二阶近似，在一阶近似中，以预测概率和经验概率的KL散度作为损失函数<br>$$<br>预测概率p_{1ij}=\frac{1}{1+exp(-Y_i{Y_j}^T)}\\<br>经验概率\hat{p}_{2ij}=\frac{W_{ij}}{\sum_{(i,j)\in E} W_{ij}}\\<br>\mathcal{L}_{1st}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{1ij}\\<br>$$<br>在计算二阶近似时，LINE认为每个点应当有两个表达，一个是表达点本身，即$Y$，另一个则是作为其他点的特定context存在，这里记作$Y’$，两者都是待学习的参数，具体损失函数如下：<br>$$<br>预测概率p_{2}(v_j|v_i)=\frac{\text{exp}(Y_i{Y_j}’^T)}{\sum_{k=1}^{|V|}\text{exp}(Y_i{Y_k}’^T))}\\<br>经验概率\hat{p}_{2}(v_j|v_i)=\frac{W_{ij}}{d_i},d_i为点i的出度\\<br>\mathcal{L}_{2nd}=-\sum_{(i,j)\in E}W_{ij}\text{ log }p_{2}(v_j|v_i)\\<br>$$<br>与node2vec类似，这里边采样也采用alias sample进行加速，并采用负采样加速训练效果</p>
+<h2 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h2><table>
 <thead>
 <tr>
 <th>参数名</th>
@@ -660,7 +606,6 @@ P(c_i=x|c_{i-1}=v)=
 </tr>
 </tbody>
 </table>
-</div>
 
       
     </div>

@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">共计</span>
                 
                 <span title="共计">
-                  3,487 字
+                  3,544 字
                 </span>
               
 
@@ -526,21 +526,13 @@
 <li>序号(Sequence number)：报文段首字节字节流编号</li>
 <li>确认号(Acknowledgement number)：期望收到的下一字节的序号</li>
 </ul>
-<h2 id="估计往返时间与超时"><a href="#估计往返时间与超时" class="headerlink" title="估计往返时间与超时"></a>估计往返时间与超时</h2><p>仅为已发送但是未被确认的分组测量SampleRTT </p>
-<script type="math/tex; mode=display">
-EstimatedRTT=(1-\alpha)*EstimatedRTT + \alpha*SampleRTT\\
-EstimatedRTT=0.875*EstimatedRTT + 0.125*SampleRTT</script><p>RTT偏差：</p>
-<script type="math/tex; mode=display">
-DevRTT=(1-\beta)*DevRTT + \beta*|SampleRTT-EstimatedRTT|\\
-DevRTT=0.75*DevRTT + 0.25*|SampleRTT-EstimatedRTT|</script><p>超时间隔，初始值为1s：</p>
-<script type="math/tex; mode=display">
-TimeoutInterval=EstimatedRTT+4*DevRTT</script><h2 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h2><p>两次duplicated ACK肯定是乱序造成的</p>
+<h2 id="估计往返时间与超时"><a href="#估计往返时间与超时" class="headerlink" title="估计往返时间与超时"></a>估计往返时间与超时</h2><p>仅为已发送但是未被确认的分组测量SampleRTT<br>$$<br>EstimatedRTT=(1-\alpha)<em>EstimatedRTT + \alpha</em>SampleRTT\\<br>EstimatedRTT=0.875<em>EstimatedRTT + 0.125</em>SampleRTT<br>$$<br>RTT偏差：<br>$$<br>DevRTT=(1-\beta)<em>DevRTT + \beta</em>|SampleRTT-EstimatedRTT|\\<br>DevRTT=0.75<em>DevRTT + 0.25</em>|SampleRTT-EstimatedRTT|<br>$$<br>超时间隔，初始值为1s：<br>$$<br>TimeoutInterval=EstimatedRTT+4*DevRTT<br>$$</p>
+<h2 id="快速重传"><a href="#快速重传" class="headerlink" title="快速重传"></a>快速重传</h2><p>两次duplicated ACK肯定是乱序造成的</p>
 <p>丢包肯定会造成三次duplicated ACK</p>
 <p>快速重传：在报文段的定时器过期之前重传丢失的报文段</p>
 <p><a href="https://www.zhihu.com/question/21789252" target="_blank" rel="noopener">https://www.zhihu.com/question/21789252</a></p>
-<h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><p>接收窗口：用于指示发送方接收方还有多少可用的缓存空间</p>
-<script type="math/tex; mode=display">
-LastByteSent-LastByteAcked\le rwnd</script><h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><ol>
+<h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><p>接收窗口：用于指示发送方接收方还有多少可用的缓存空间<br>$$<br>LastByteSent-LastByteAcked\le rwnd<br>$$</p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><ol>
 <li>TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了<strong>LISTEN</strong>（监听）状态；</li>
 <li>TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 <strong>SYN-SENT</strong>（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。</li>
 <li>TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了<strong>SYN-RCVD</strong>（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。</li>
@@ -603,12 +595,9 @@ LastByteSent-LastByteAcked\le rwnd</script><h2 id="三次握手"><a href="#三�
 <h2 id="时延计算"><a href="#时延计算" class="headerlink" title="时延计算"></a>时延计算</h2><p>首先要注意传输速率指的是将数据推向链路上的速率，而传播时延则对应为比特在链路上传播所需的时间，与物理媒体和链路长度有关，和RTT相对应</p>
 <p>然后假设传播速率（发送速率）为R，一个分组长度为M，窗口大小为W=nM，发送数据大小为L</p>
 <p>注意到R是会直接影响到拥塞窗口的大小的，因为如果R足够大，那么一个RTT时间内可以传输无数个分组，以致于接收方不停的丢包，那么就有一个最适合当前发送速率的拥塞窗口大小</p>
-<p>假设当前处在拥塞避免阶段，每次成功接收到 <script type="math/tex">\frac{W}{M}=n</script> 个新ACK后，窗口大小都会增加M，并逐渐趋向于在一个RTT内，发送所有的<script type="math/tex">\frac{W}{M}</script> 个分组，也就是<script type="math/tex">\frac{W}{RTT}\rightarrow R</script> ，此时，倘若还没有出现丢包，也就说明接收方的接受速度足够快，并且没有拥塞，那么拥塞窗口继续增大，所有的RTT时间内都会有数据进行传输，传输进入稳定状态。特别的，一个RTT里并非刚好能够传整数个分组，而只是按照流水线的方式持续不断的传输以保证没有空闲。</p>
-<p>在这种情况下，拥塞窗口大小有</p>
-<script type="math/tex; mode=display">
-W \ge \lceil \frac{RTT}{M/R}\rceil + 1</script><p>计算上TCP握手所需要的时间RTT，总共时延为</p>
-<script type="math/tex; mode=display">
-T=2RTT+L/R</script><p><img src="D:\subject\计算机网络\复习\pic\RTT时延1.png" alt="RTT时延1"></p>
+<p>假设当前处在拥塞避免阶段，每次成功接收到 $$\frac{W}{M}=n$$ 个新ACK后，窗口大小都会增加M，并逐渐趋向于在一个RTT内，发送所有的$$\frac{W}{M}$$ 个分组，也就是$$\frac{W}{RTT}\rightarrow R$$ ，此时，倘若还没有出现丢包，也就说明接收方的接受速度足够快，并且没有拥塞，那么拥塞窗口继续增大，所有的RTT时间内都会有数据进行传输，传输进入稳定状态。特别的，一个RTT里并非刚好能够传整数个分组，而只是按照流水线的方式持续不断的传输以保证没有空闲。</p>
+<p>在这种情况下，拥塞窗口大小有<br>$$<br>W \ge \lceil \frac{RTT}{M/R}\rceil + 1<br>$$<br>计算上TCP握手所需要的时间RTT，总共时延为<br>$$<br>T=2RTT+L/R<br>$$</p>
+<p><img src="D:\subject\计算机网络\复习\pic\RTT时延1.png" alt="RTT时延1"></p>
 
       
     </div>
