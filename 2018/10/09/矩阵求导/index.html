@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Deep-Learning Coursera," />
 
 
 
@@ -94,16 +94,18 @@
 
 
 
-<meta name="description" content="from the beginning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="弗雷的小屋">
-<meta property="og:url" content="https://freyr-wings.github.io/tags/Next/index.html">
+<meta name="description" content="本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子 https://zhuanlan.zhihu.com/p/24709748 https://zhuanlan.zhihu.com/p/24863977">
+<meta name="keywords" content="Deep-Learning Coursera">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵求导">
+<meta property="og:url" content="https://freyr-wings.github.io/2018/10/09/矩阵求导/index.html">
 <meta property="og:site_name" content="弗雷的小屋">
-<meta property="og:description" content="from the beginning">
+<meta property="og:description" content="本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子 https://zhuanlan.zhihu.com/p/24709748 https://zhuanlan.zhihu.com/p/24863977">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-09T15:13:32.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="弗雷的小屋">
-<meta name="twitter:description" content="from the beginning">
+<meta name="twitter:title" content="矩阵求导">
+<meta name="twitter:description" content="本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子 https://zhuanlan.zhihu.com/p/24709748 https://zhuanlan.zhihu.com/p/24863977">
 
 
 
@@ -132,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://freyr-wings.github.io/tags/Next/"/>
+  <link rel="canonical" href="https://freyr-wings.github.io/2018/10/09/矩阵求导/"/>
 
 
 
 
 
-  <title>标签: Next | 弗雷的小屋</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>矩阵求导 | 弗雷的小屋</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -163,7 +165,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
     <a href="https://github.com/Freyr-Wings" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
@@ -302,54 +304,320 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Next<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://freyr-wings.github.io/2018/10/09/矩阵求导/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Freyr Wings">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="弗雷的小屋">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/27/hexo博客-2/" itemprop="url">
-              
-                <span itemprop="name">来做个自己的hexo博客吧(2)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">矩阵求导</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-27T22:56:22+08:00"
-              content="2018-02-27" >
-          02-27
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-09T23:10:19+08:00">
+                2018-10-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/09/矩阵求导/" class="leancloud_visitors" data-flag-title="矩阵求导">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-thermometer"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">共计</span>
+                
+                <span title="共计">
+                  899 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长≈</span>
+                
+                <span title="阅读时长≈">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子</p>
+<p><a href="https://zhuanlan.zhihu.com/p/24709748" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24709748</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/24863977" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/24863977</a></p>
+<a id="more"></a>
+<h1 id="梯度矩阵"><a href="#梯度矩阵" class="headerlink" title="梯度矩阵"></a>梯度矩阵</h1><h2 id="一些定义"><a href="#一些定义" class="headerlink" title="一些定义"></a>一些定义</h2><p>$n\times1$列向量<strong>偏导算子</strong>即<strong>梯度算子</strong>记作$\nabla_\boldsymbol{x}$，定义为</p>
+<script type="math/tex; mode=display">
+\nabla_\boldsymbol{x}=:\frac{\partial }{\partial \boldsymbol{x}} = [\frac{\partial }{\partial x_1},\frac{\partial }{\partial x_2},\cdots,\frac{\partial }{\partial x_n}]^T</script><p>所以实值标量函数$f(\boldsymbol{x})$的梯度向量$\nabla_\boldsymbol{x} f(\boldsymbol{x})$为$n\times 1$列向量，定义为</p>
+<script type="math/tex; mode=display">
+\nabla_\boldsymbol{x} f(\boldsymbol{x})=: [\frac{\partial  f(\boldsymbol{x})}{\partial x_1},\frac{\partial  f(\boldsymbol{x})}{\partial x_2},\cdots,\frac{\partial  f(\boldsymbol{x})}{\partial x_n}]^T=\frac{\partial  f(\boldsymbol{x})}{\partial \boldsymbol{x}}</script><p>类似的，实值标量函数$f(X)$关于矩阵变元$X$的梯度矩阵为</p>
+<script type="math/tex; mode=display">
+\nabla_X f(X)=
+\left[
+\begin{matrix}
+\frac{\partial  f(X)}{\partial x_{11}} & \cdots & \frac{\partial  f(X)}{\partial x_{1n}} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial  f(X)}{\partial x_{m1}} & \cdots & \frac{\partial  f(X)}{\partial x_{mn}} \\
+\end{matrix}
+\right]
+=\frac{\partial  f(X)}{\partial X}</script><p>矩阵的列向量化（类似numpy中的flatten）：</p>
+<script type="math/tex; mode=display">
+\text{vec}(X)=[x_{11},x_{21},\cdots,x_{m1},\cdots,x_{1n},x_{2n},\cdots,x_{mn}]^T</script><h2 id="微分推导"><a href="#微分推导" class="headerlink" title="微分推导"></a>微分推导</h2><p>根据列向量导数与微分的关系有：</p>
+<script type="math/tex; mode=display">
+\text{d}f = \sum_{i=1}^n \frac{\partial f}{\partial x_i}\text{d}x_i = \frac{\partial f}{\partial \boldsymbol{x}}^T \text{d}\boldsymbol{x}</script><p>这里第一个等号是全微分公式，第二个等号表达了梯度与微分的联系：全微分$\text{d}f$是$n\times1$梯度向量$\frac{\partial f}{\partial \boldsymbol{x}}$与$n\times1$微分向量$\text{d}\boldsymbol x$的<strong>内积</strong>，受此启发，将矩阵导数与微分建立联系</p>
+<script type="math/tex; mode=display">
+\text{d}f = \sum_{i=1}^m \sum_{j=1}^n \frac{\partial f}{\partial x_{ij}}\text{d}x_{ij} = 
+\frac{\partial f}{\partial \text{vec}(X)}^Td(\text{vec}(X))
+=
+\text{tr}(\frac{\partial f}{\partial X}^T \text{d}X)</script><h1 id="矩阵微分的运算技巧"><a href="#矩阵微分的运算技巧" class="headerlink" title="矩阵微分的运算技巧"></a>矩阵微分的运算技巧</h1><p>（1）加减法：$d(X\pm Y) = dX \pm dY $；矩阵乘法：$d(XY) = dX Y + X dY  $；转置：$d(X^T) = (dX)^T $；迹：$d\text{tr}(X) = \text{tr}(dX) $。</p>
+<p>（2）逆：$\text{d}X^{-1} = -X^{-1}\text{d}X X^{-1} $。此式可在$XX^{-1}=I$两侧求微分来证明。</p>
+<p>（3）行列式：$\text{d}|X| = \text{tr}(X^$表示X的伴随矩阵，在X可逆时又可以写作$d|X|= |X|\text{tr}(X^{-1}dX)$。此式可用Laplace展开来证明，详见张贤达《矩阵分析与应用》第279页。</p>
+<p>（4）逐元素乘法：$\text{d}(X\odot Y) = \text{d}X\odot Y + X\odot \text{d}Y$，$\odot$表示尺寸相同的矩阵X,Y逐元素相乘。</p>
+<p>（5）逐元素函数：$\text{d}\sigma(X) = \sigma’(X)\odot \text{d}X $，$\sigma(X) = \left[\sigma(X_{ij})\right]$是逐元素运算的标量函数。</p>
+<p>（6）链式法则：$\frac{\partial F}{\partial X} = \frac{\partial Y}{\partial X}\frac{\partial F}{\partial Y} $，但前提是需要<strong>准确</strong>求出各项导数</p>
+<p>（7）在某一维上求和：$X\ \bf{1}^{(n,1)}$</p>
+<h1 id="迹技巧"><a href="#迹技巧" class="headerlink" title="迹技巧"></a>迹技巧</h1><p>（1）$\text{d}f=\text{tr}(\frac{\partial f}{\partial X}^T \text{d}X)$ </p>
+<p>（2）<strong>标量</strong>函数$f(X)$总可以写成迹函数的形式，即$f(X)=\text{tr}(f(X))$</p>
+<p>（3）对于$(\text{d}X)^T$，总可以通过迹函数的性质$\text{tr}(A)=\text{tr}(A^T)$，通过$\text{tr}[Q(\text{d}X)^TR]=\text{tr}(Q^TR^T\text{d}X)$，写成迹函数微分矩阵的规范形式</p>
+<p>（4）线性：$\text{tr}(A\pm B) = \text{tr}(A)\pm \text{tr}(B) $</p>
+<p>（5）矩阵乘法交换：$\text{tr}(A^TB)=\text{tr}(BA^T)$，其中A与B<strong>形状相同</strong>，且等式两侧都等于$\sum_{i,j}A_{ij}B_{ij} $</p>
+<p>（6）矩阵乘法/逐元素乘法交换： $\text{tr}(A^T(B\odot C)) = \text{tr}((A\odot B)^TC) $，其中ABC<strong>形状相同</strong>，且等式两侧都等于$\sum_{i,j}A_{ij}B_{ij}C_{ij} $</p>
+<p>（7）得到规范形式后，利用下面的等式即可得到对应的梯度矩阵</p>
+<script type="math/tex; mode=display">
+\text{d}f(X)=\text{tr}(Q\text{d}X) \Leftrightarrow \nabla_X f(X)=Q^T</script><h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><h2 id="example1"><a href="#example1" class="headerlink" title="example1"></a>example1</h2><p>以Andrew Ng的Deep Learning课程中的一个两层神经网络为例，在这里，我们希望将计算统一化，将所有的变量都视为矩阵，并且不需要知道矩阵的具体形状，只需要清楚哪些矩阵的<strong>形状相同</strong>即可。已知的条件如下：</p>
+<script type="math/tex; mode=display">
+Z_1=W_1X+b_1\boldsymbol{1^{s(X)[1]}}\\
+A_1=tanh(Z_1)\\
+Z_2=W_2A_1+b_2\boldsymbol{1^{s(A_1)[1]}}\\
+A_2=sigmoid(Z_2)= \frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2)}\\
+J=-\frac{1}{m}(Y(ln(A_2))^T+(\boldsymbol{1^{s(Y)}}-Y)(ln(\boldsymbol{1^{s(A_2)}}-A_2))^T)</script><p>接下来要求$\nabla_{W_1} J,\nabla_{b_1}J,\nabla_{W_2} J,\nabla_{b_2} J$四个梯度矩阵，并且尽可能的利用已经求出的梯度矩阵去计算</p>
+<p>将$A_2$代入到$J$中，化简得到</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+J&=
+-\frac{1}{m}(Y(ln( \frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2)}))^T
++(\boldsymbol{1^{s(Y)}}-Y)(ln(\boldsymbol{1^{s(A_2)}}- \frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2)}))^T)\\
+&=-\frac{1}{m}(YZ_2^T
+-\boldsymbol{1^{s(Y)}} ln(\boldsymbol{1^{s(Z_2)}}+\exp(Z_2))^T)\\
+\end{align*}</script><p>于是</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\text{d}J&=-\frac{1}{m}(Y\text{d}Z_2^T
+-\boldsymbol{1^{s(Y)}} \text{d}[ln(\boldsymbol{1^{s(Z_2)}}+\exp(Z_2))^T)]\\
+&=-\frac{1}{m}(Y \text{d}Z_2^T
+-\boldsymbol{1^{s(Y)}}\
+(\frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2))}\odot \text{d}Z_2)^T\\
+&=-\frac{1}{m}\text{tr}((Y \text{d}Z_2^T
+-\boldsymbol{1^{s(Y)}}\
+(\frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2))}\odot \text{d}Z_2)^T)\\
+&=-\frac{1}{m}\text{tr}((Y \text{d}Z_2^T
+-\frac{\exp(Z_2)}{\boldsymbol{1^{s(Z_2)}}+\exp(Z_2))}\ \text{d}Z_2^T)(根据迹技巧6)\\
+&=-\frac{1}{m}\text{tr}(Y-A_2) \text{d}Z_2^T)\\
+&=-\frac{1}{m}\text{tr}((Y-A_2)^T \text{d}Z_2)(根据迹技巧3、5)\\
+\frac{\partial J}{\partial Z_2}&=Y-A_2(根据迹技巧7)
+\end{align*}</script><p>同理可以得到以下等式</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\text{d}J&=tr(\frac{\partial J}{\partial Z_2}^T\text{d}Z_2)\\
+&=tr(\frac{\partial J}{\partial Z_2}^T\text{d}(W_2A_1+b_2\boldsymbol{1^{s(A_1)[1]}}))\\
+&=tr(A_1\frac{\partial J}{\partial Z_2}^T\text{d}W_2)==>\frac{\partial J}{\partial W_2}=\frac{\partial J}{\partial Z_2}A_1^T\\
+&=tr(\frac{\partial J}{\partial Z_2}^TW_2\text{d}A_1)==>\frac{\partial J}{\partial A_1}=W_2^T\frac{\partial J}{\partial Z_2}\\
+&=tr(\boldsymbol{1^{s(A_1)[1]}}\frac{\partial J}{\partial Z_2}^T\text{d}b_2)==>\frac{\partial J}{\partial b_2}=\frac{\partial J}{\partial Z_2}(\boldsymbol{1^{s(A_1)[1]}})^T\\
+\end{align*}</script><p>对于隐层</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\text{d}J&=tr(\frac{\partial J}{\partial A_1}^T\text{d}A_1)\\
+&=tr(\frac{\partial J}{\partial A_1}^T\text{d}(tanh(Z_1)))\\
+&=tr(\frac{\partial J}{\partial A_1}^T(tanh'(Z_1)\odot\text{d}Z_1))\\
+&=tr((\frac{\partial J}{\partial A_1}\odot tanh'(Z_1))^T\text{d}Z_1))==>\frac{\partial J}{\partial Z_1}=\frac{\partial J}{\partial A_1}\odot tanh'(Z_1)\\
+\end{align*}</script><p>有了这些等式后，也就很容易能够得到$\nabla_{W_1} J,\nabla_{b_1}J$了</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Freyr Wings
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://freyr-wings.github.io/2018/10/09/矩阵求导/" title="矩阵求导">https://freyr-wings.github.io/2018/10/09/矩阵求导/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Deep-Learning-Coursera/" rel="tag"># Deep-Learning Coursera</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/09/图与节点的表达学习/" rel="next" title="图与节点的表达学习">
+                <i class="fa fa-chevron-left"></i> 图与节点的表达学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +625,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDQxMy8xMDk1MA=="></div>
+    
+  </div>
+
 
         </div>
         
@@ -377,8 +651,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -440,6 +723,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度矩阵"><span class="nav-number">1.</span> <span class="nav-text">梯度矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一些定义"><span class="nav-number">1.1.</span> <span class="nav-text">一些定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微分推导"><span class="nav-number">1.2.</span> <span class="nav-text">微分推导</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#矩阵微分的运算技巧"><span class="nav-number">2.</span> <span class="nav-text">矩阵微分的运算技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迹技巧"><span class="nav-number">3.</span> <span class="nav-text">迹技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子"><span class="nav-number">4.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#example1"><span class="nav-number">4.1.</span> <span class="nav-text">example1</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -575,10 +874,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -607,6 +906,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
