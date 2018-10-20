@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="弗雷的小屋">
 <meta property="og:description" content="本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子 https://zhuanlan.zhihu.com/p/24709748 https://zhuanlan.zhihu.com/p/24863977">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-09T15:17:31.317Z">
+<meta property="og:updated_time" content="2018-10-09T15:19:37.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="矩阵求导">
 <meta name="twitter:description" content="本文为个人对下面两篇博客的总结和理解，另外包含一个Deep Learning中的神经网络的求导例子 https://zhuanlan.zhihu.com/p/24709748 https://zhuanlan.zhihu.com/p/24863977">
@@ -323,7 +323,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Freyr Wings">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/profile.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -484,7 +484,7 @@
 <p>（3）行列式：$\text{d}|X| = \text{tr}(X^{\sharp}\text{d}X)$，其中$X^{\sharp}$表示X的伴随矩阵，在X可逆时又可以写作$d|X|= |X|\text{tr}(X^{-1}dX)$。此式可用Laplace展开来证明，详见张贤达《矩阵分析与应用》第279页。</p>
 <p>（4）逐元素乘法：$\text{d}(X\odot Y) = \text{d}X\odot Y + X\odot \text{d}Y$，$\odot$表示尺寸相同的矩阵X,Y逐元素相乘。</p>
 <p>（5）逐元素函数：$\text{d}\sigma(X) = \sigma’(X)\odot \text{d}X $，$\sigma(X) = \left[\sigma(X_{ij})\right]$是逐元素运算的标量函数。</p>
-<p>（6）链式法则：$\frac{\partial F}{\partial X} = \frac{\partial Y}{\partial X}\frac{\partial F}{\partial Y} $，但前提是需要<strong>准确</strong>求出各项导数</p>
+<p>（6）链式法则：$\frac{\partial F}{\partial X} = \frac{\partial Y}{\partial X}\frac{\partial F}{\partial Y} ​$，但前提是需要<strong>准确</strong>求出各项导数</p>
 <p>（7）在某一维上求和：$X\ \bf{1}^{(n,1)}$</p>
 <h1 id="迹技巧"><a href="#迹技巧" class="headerlink" title="迹技巧"></a>迹技巧</h1><p>（1）$\text{d}f=\text{tr}(\frac{\partial f}{\partial X}^T \text{d}X)$ </p>
 <p>（2）<strong>标量</strong>函数$f(X)$总可以写成迹函数的形式，即$f(X)=\text{tr}(f(X))$</p>
@@ -664,7 +664,7 @@ J&=
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/img/profile.jpg"
                alt="Freyr Wings" />
           <p class="site-author-name" itemprop="name">Freyr Wings</p>
            
